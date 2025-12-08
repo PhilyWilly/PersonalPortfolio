@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{{ request.url_for('static', path='style.css') }}">
+</head>
+<body>
+    <div class="section vertical center dark">
+        <div class="text-container">
+            <h1>Impressum</h1>
+            <p>Angaben gemäß § 5 TMG<br>
+                <br>
+                David Wesch<br>
+                Wiesenweg 9<br>
+                69250 Schönau<br>
+                Deutschland</p>
+            
+            <h3>Kontakt:</h3>
+            <p>Telefon: +49 163 7299329<br>
+                E-Mail: davidernst0902@web.de</p>
+            
+            <h3>Berufsbezeichnung:</h3>
+            <p>Schüler</p>
+
+            <h3>Haftung für Inhalte</h3>
+            <p>Als Diensteanbieter bin ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+
+            <h3>Haftung für Links</h3>
+            <p>Mein Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+        
+            <h3>Urheberrecht</h3>
+            <p>Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+        </div>
+    </div>
+    <div class="section footer">
+        <div class="footer-links">
+            <a href="/imprint/" target="_blank">{{ t['imprint'] }}</a>
+            <a href="/privacy/" target="_blank">{{ t['privacy'] }}</a>
+        </div>
+    </div>
+    <script src="{{ request.url_for('static', path='script.js') }}"></script>
+</body>
+</html>

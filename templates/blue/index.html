@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{{ request.url_for('static', path='blue-style.css') }}">
+</head>
+
+<body>
+    <canvas id="experimental-canvas"></canvas>
+    <div id="bottom-right-information-container">
+        <p>{{ t['credits'] }}</p>
+    </div>
+    <div class="section header">
+        <div class="horizontal-column">
+            <div>
+                <h1 id="firstname">David</h1>
+                <h1 id="lastname">Wesch</h1>
+                <p id="person-description">{{ t['person-description'] }}</p>
+                <div class="horizontal-box">
+                    <button class="main-button"
+                        onClick="document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });">{{
+                        t['contact-button'] }}</button>
+                    <button class="secondary-button" onclick="window.location.href = '/download-cv';">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512"
+                            style="enable-background:new 0 0 512 512;" xml:space="preserve" width="16" height="16">
+                            <g>
+                                <path
+                                    d="M210.731,386.603c24.986,25.002,65.508,25.015,90.51,0.029c0.01-0.01,0.019-0.019,0.029-0.029l68.501-68.501   c7.902-8.739,7.223-22.23-1.516-30.132c-8.137-7.357-20.527-7.344-28.649,0.03l-62.421,62.443l0.149-329.109   C277.333,9.551,267.782,0,256,0l0,0c-11.782,0-21.333,9.551-21.333,21.333l-0.192,328.704L172.395,288   c-8.336-8.33-21.846-8.325-30.176,0.011c-8.33,8.336-8.325,21.846,0.011,30.176L210.731,386.603z" />
+                                <path
+                                    d="M490.667,341.333L490.667,341.333c-11.782,0-21.333,9.551-21.333,21.333V448c0,11.782-9.551,21.333-21.333,21.333H64   c-11.782,0-21.333-9.551-21.333-21.333v-85.333c0-11.782-9.551-21.333-21.333-21.333l0,0C9.551,341.333,0,350.885,0,362.667V448   c0,35.346,28.654,64,64,64h384c35.346,0,64-28.654,64-64v-85.333C512,350.885,502.449,341.333,490.667,341.333z" />
+                            </g>
+                        </svg>
+                        {{ t['cv-button'] }}
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="horizontal-column center" id="picture-of-myself-container">
+            <img id="picture-of-myself" src="{{ request.url_for('static', path='pics/picture-of-me-scaled-down.png') }}"
+                alt="Picture of me">
+        </div>
+    </div>
+
+    <!-- About Me Section -->
+    <div class="section big dark">
+        <div class="horizontal-column">
+            <div class="vertical-row spread">
+                <div class="vertical-row">
+                    <h3>{{ t['about-me-header'] }}</h3>
+                    <p style="max-width: 800px;">{{ t['about-me-description'] }}</p>
+                </div>
+                <div class="vertical-row">
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h5>{{ t['programming-skills'] }}</h5>
+                            <p style="max-width: 600px;">{{ t['about-me-programming'] }}</p>
+                            <div class="skill-showcase">
+                                <div class="skills-grid-container">
+                                    <div class="skill-item">
+                                        <div class="skill-icon">
+                                            <img src="{{ request.url_for('static', path='pics/python.svg') }}"
+                                                alt="Python">
+                                        </div>
+                                        <div class="skill-info">
+                                            <div class="skill-name">Python</div>
+                                            <div class="skill-level">{{ t['skilllevel-advanced'] }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-icon">
+                                            <img src="{{ request.url_for('static', path='pics/flutter.png') }}"
+                                                alt="Flutter">
+                                        </div>
+                                        <div class="skill-info">
+                                            <div class="skill-name">Flutter</div>
+                                            <div class="skill-level">{{ t['skilllevel-expert'] }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-icon">
+                                            <img src="{{ request.url_for('static', path='pics/javascript.svg') }}"
+                                                alt="JavaScript">
+                                        </div>
+                                        <div class="skill-info">
+                                            <div class="skill-name">JavaScript</div>
+                                            <div class="skill-level">{{ t['skilllevel-advanced'] }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-icon">
+                                            <img src="{{ request.url_for('static', path='pics/html.svg') }}" alt="HTML">
+                                        </div>
+                                        <div class="skill-info">
+                                            <div class="skill-name">HTML5</div>
+                                            <div class="skill-level">{{ t['skilllevel-advanced'] }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-icon">
+                                            <img src="{{ request.url_for('static', path='pics/css.svg') }}" alt="CSS">
+                                        </div>
+                                        <div class="skill-info">
+                                            <div class="skill-name">CSS3</div>
+                                            <div class="skill-level">{{ t['skilllevel-advanced'] }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-icon">
+                                            <img src="{{ request.url_for('static', path='pics/java.svg') }}" alt="Java">
+                                        </div>
+                                        <div class="skill-info">
+                                            <div class="skill-name">Java</div>
+                                            <div class="skill-level">{{ t['skilllevel-intermediate'] }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h5>{{ t['video-editing-skills'] }}</h5>
+                            <p style="max-width: 600px;">{{ t['about-me-video-editing'] }}</p>
+                            <div class="skill-showcase">
+                                <div class="skills-grid-container">
+                                    <div class="skill-item">
+                                        <div class="skill-icon">
+                                            <img src="{{ request.url_for('static', path='pics/premiere-pro.svg') }}"
+                                                alt="Premiere Pro">
+                                        </div>
+                                        <div class="skill-info">
+                                            <div class="skill-name">Premiere Pro</div>
+                                            <div class="skill-level">{{ t['skilllevel-advanced'] }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-icon">
+                                            <img src="{{ request.url_for('static', path='pics/after-effects.svg') }}"
+                                                alt="After Effects">
+                                        </div>
+                                        <div class="skill-info">
+                                            <div class="skill-name">After Effects</div>
+                                            <div class="skill-level">{{ t['skilllevel-expert'] }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-icon">
+                                            <img src="{{ request.url_for('static', path='pics/photoshop.svg') }}"
+                                                alt="Photoshop">
+                                        </div>
+                                        <div class="skill-info">
+                                            <div class="skill-name">Photoshop</div>
+                                            <div class="skill-level">{{ t['skilllevel-advanced'] }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-icon">
+                                            <img src="{{ request.url_for('static', path='pics/blender.svg') }}"
+                                                alt="Blender">
+                                        </div>
+                                        <div class="skill-info">
+                                            <div class="skill-name">Blender</div>
+                                            <div class="skill-level">{{ t['skilllevel-intermediate'] }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects & Work Section -->
+    <div class="section projects-work">
+        <div class="horizontal-column">
+            <h3>{{ t['projects-work-header'] }}</h3>
+            <div class="projects-container">
+                <div class="project-category">
+                    <h4>{{ t['current-projects'] }}</h4>
+                    <div class="project-list">
+                        <div class="project-item active">
+                            <div class="project-icon">🗂️</div>
+                            <div class="project-details">
+                                <h5>{{ t['project-taskmanager-title'] }}</h5>
+                                <p>{{ t['project-taskmanager-description'] }}</p>
+                                <span class="project-status status-development">{{ t['status-development'] }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-category">
+                    <h4>{{ t['work-experience'] }}</h4>
+                    <div class="project-list">
+                        <div class="project-item">
+                            <div class="project-icon">💼</div>
+                            <div class="project-details">
+                                <h5>{{ t['work-rehatec-title'] }}</h5>
+                                <p>{{ t['work-rehatec-description'] }}</p>
+                                <span class="project-status">{{ t['status-ongoing'] }}</span>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <div class="project-icon">🎓</div>
+                            <div class="project-details">
+                                <h5>{{ t['work-education-title'] }}</h5>
+                                <p>{{ t['work-education-description'] }}</p>
+                                <span class="project-status">{{ t['status-current'] }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if msg %}
+    <div id="success-toast" class="toast-notification">
+        <div class="toast-content">
+            <div class="toast-icon">✅</div>
+            <p>{{ t['message-sent-success'] }}</p>
+            <button class="toast-close" onclick="closeToast()">&times;</button>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="section centered fit-to-content dark">
+        <form id="contact-form" method="post">
+            <h3 class="text-center">{{ t['contact-form-header'] }}</h3>
+            <p>{{ t['contact-form-mail'] }}</p>
+            <p><input type="email" name="email" required></p>
+            <p>{{ t['contact-form-message'] }}</p>
+            <p><textarea name="message" required></textarea></p>
+            <p><button type="submit">{{ t['contact-form-submit-button'] }}</button></p>
+        </form>
+    </div>
+    <div class="section footer super-dark">
+        <div class="footer-links">
+            <a href="/imprint/" target="_blank">{{ t['imprint'] }}</a>
+            <a href="/privacy/" target="_blank">{{ t['privacy'] }}</a>
+        </div>
+    </div>
+    <script src="{{ request.url_for('static', path='script.js') }}"></script>
+    <script src="{{ request.url_for('static', path='wavesBackground.js') }}"></script>
+    <script>
+        // Toast notification functionality
+        function closeToast() {
+            const toast = document.getElementById('success-toast');
+            if (toast) {
+                toast.style.animation = 'slideOutToTop 0.3s ease-in forwards';
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }
+        }
+
+        // Auto-dismiss toast after 10 seconds
+        document.addEventListener('DOMContentLoaded', function () {
+            const toast = document.getElementById('success-toast');
+            if (toast) {
+                // Auto-dismiss after 10 seconds
+                setTimeout(() => {
+                    closeToast();
+                }, 10000);
+            }
+        });
+    </script>
+</body>
+
+</html>

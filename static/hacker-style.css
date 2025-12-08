@@ -1,0 +1,206 @@
+:root {
+    /* Hacker color palette */
+    --background: hsl(237, 95%, 8%);
+    --primary: hsl(180, 85%, 65%);
+    --secondary: hsl(197, 87%, 61%);
+    --color: hsl(220, 67%, 33%);
+    --dark: hsl(225, 97%, 12%);
+    --light: hsl(180, 86%, 92%);
+
+    --transition-duration-focus: 360ms;
+    --transition-duration-hover: 360ms;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--background);
+    color: var(--primary);
+    overflow-x: hidden;
+}
+input {
+    all: unset;
+}
+
+.fullscreen-canvas {
+    width: 100%;
+    height: 95vh;
+    display: block;
+    position: absolute;
+    z-index: -4;
+}
+td {
+    align-content: center;
+    justify-items: center;
+    width: 33%;
+    
+}
+
+.top-section {
+    /* Not scrollable section */
+    background: var(--background);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -5;
+}
+
+/* Frames */
+.frame {
+    display: inline-block;
+    background-color: transparent;
+    border: 3px solid var(--primary);
+
+    transition: all var(--transition-duration-hover);
+    transition-timing-function: ease;
+
+    margin: 8px;
+}
+.frame:hover {
+    border-color: var(--light);
+    color: var(--light);
+    border-width: 5px;
+    margin: 6px;
+    cursor: pointer;
+}
+.frame.dark {
+    border-color: var(--color);
+    color: var(--color);
+}
+.frame.dark:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+.profile-picture-frame {
+    padding: 0px;
+    /* height: 260px;
+    width: 260px; */
+    width: 300px;
+}
+.frame > p {
+    user-select: none;
+}
+
+.text-frame {
+    padding: 2px 12px;
+}
+.text-frame > p {
+    margin: 4px 2px;
+    font-size: large;
+}
+
+.framelist {
+    display: grid;
+    gap: 16px;
+    width: 100%;
+}
+
+/* Row Column */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.row {
+    flex: 1;
+    display: flex;
+    gap: 12px;
+    right: 32px;
+    left: 32px;
+    top: 48px;
+    bottom: 32px;
+}
+
+.column {
+  float: left;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: antiquewhite; */
+}
+
+.column.divider {
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+}
+.column.divider > * {
+    width: 100%;
+}
+
+/* Console */
+.console {
+    height: 30vh;
+
+    /* 20% transparency for console; fallback for older browsers */
+    background-color: var(--background);
+    background-color: hsl(237 95% 8% / 0.7);
+    border: 3px solid var(--dark);
+
+    display: flex;
+    flex-direction: column;
+}
+
+#console-output {
+    flex: 1;
+    padding: 8px 14px;
+
+    font-size: large;
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) transparent;
+}
+#console-output::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+}
+#console-output::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+#console-output::-webkit-scrollbar-thumb {
+    background-color: var(--secondary);
+    border-radius: 6px;
+}
+
+/* Remove corner background (optional) */
+#console-output::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+#console-textfield {
+    width: 100%;
+    height: 40px;
+    padding: 2px 8px;
+
+    color: var(--primary);
+
+    background-color: hsla(225, 97%, 12%, 20%);
+
+    border-width: 2px;
+    border-color: var(--color);
+    border-style: solid none none none;
+
+    transition: all var(--transition-duration-focus);
+}
+#console-textfield:hover {
+    border-width: 3px;
+}
+#console-textfield:focus {
+    border-width: 5px;
+}
+
+/* Spinning Earth */
+#spinning-earth {
+    font-size: x-small;
+}

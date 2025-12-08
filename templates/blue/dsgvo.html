@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{{ request.url_for('static', path='style.css') }}">
+</head>
+<body>
+    <div class="section vertical center dark">
+        <div class="text-container">
+            <h1>Datenschutzerklärung</h1>
+
+            <h3>Verantwortlicher für die Datenverarbeitung</h3>
+            <p>David Wesch<br>
+            Wiesenweg 9<br>
+            69250 Schönau<br>
+            Deutschland<br>
+            E-Mail: davidernst0902@web.de</p>
+
+            <h3>1. Allgemeines zur Datenverarbeitung</h3>
+            <p>Ich nehme den Schutz deiner personenbezogenen Daten sehr ernst und behandle deine personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+
+            <h3>2. Erhebung und Speicherung personenbezogener Daten</h3>
+            <p>Bei der Nutzung meiner Website werden bestimmte personenbezogene Daten erhoben und verarbeitet. Dies erfolgt, wenn du das Kontaktformular ausfüllst und mir dadurch deine Daten (Name, E-Mail-Adresse und Nachricht) übermittelst.</p>
+
+            <p>Die erhobenen Daten werden ausschließlich für die Bearbeitung deiner Anfrage und die Kommunikation mit dir verwendet.</p>
+
+            <h3>3. Zweck der Datenverarbeitung</h3>
+            <p>Die Verarbeitung deiner personenbezogenen Daten erfolgt zu folgenden Zwecken:<br>
+            - Beantwortung von Anfragen über das Kontaktformular<br>
+            - Kommunikation mit dir in Bezug auf deine Anfrage</p>
+
+            <p>Die Verarbeitung erfolgt auf Grundlage deines Einverständnisses gemäß Art. 6 Abs. 1 lit. a DSGVO, welches du mit der Nutzung des Kontaktformulars erteilst.</p>
+
+            <h3>4. Speicherung und Löschung der Daten</h3>
+            <p>Die durch das Kontaktformular übermittelten Daten (E-Mail-Adresse, Name, Nachricht) werden auf meinem Server gespeichert. Die Daten werden nicht an Dritte weitergegeben und verbleiben so lange auf meinem Server, wie sie für die Bearbeitung und Beantwortung deiner Anfrage erforderlich sind. Sobald dies nicht mehr notwendig ist, werden die Daten gelöscht.</p>
+
+            <h3>5. Rechte der betroffenen Personen</h3>
+            <p>Du hast das Recht, jederzeit Auskunft über die bei mir gespeicherten personenbezogenen Daten zu verlangen. Du kannst auch die Berichtigung, Löschung oder Sperrung deiner personenbezogenen Daten verlangen.</p>
+
+            <p>Zudem hast du das Recht, der Verarbeitung deiner personenbezogenen Daten zu widersprechen oder die Übertragbarkeit deiner Daten zu verlangen. Hierfür kannst du dich jederzeit an die oben genannte Kontaktadresse wenden.</p>
+
+            <h3>6. Datenweitergabe an Dritte</h3>
+            <p>Es erfolgt keine Weitergabe deiner personenbezogenen Daten an Dritte, es sei denn, dies ist zur Erfüllung der Anfrage erforderlich oder du hast ausdrücklich in die Weitergabe deiner Daten eingewilligt.</p>
+
+            <h3>7. Verwendung von Cookies</h3>
+            <p>Auf dieser Website werden keine Cookies verwendet.</p>
+
+            <h3>8. Webanalyse und Tracking</h3>
+            <p>Es werden keine Tracking-Dienste oder Analysewerkzeuge wie Google Analytics oder andere Drittanbieter-Tools verwendet.</p>
+
+            <h3>9. Sicherheitsmaßnahmen</h3>
+            <p>Ich setze technische und organisatorische Sicherheitsmaßnahmen ein, um deine personenbezogenen Daten vor zufälliger oder unbefugter Zerstörung, Verlust, Veränderung oder unbefugtem Zugriff zu schützen.</p>
+
+            <h3>10. Externe Links und Inhalte</h3>
+            <p>Meine Website enthält keine externen Links zu Websites von Drittanbietern, die personenbezogene Daten sammeln.</p>
+
+            <h3>11. Minderjährige Nutzer</h3>
+            <p>Meine Website ist für alle Nutzer zugänglich. Ich erhebe keine personenbezogenen Daten von minderjährigen Nutzern. Es werden keine speziellen Schutzmaßnahmen für minderjährige Nutzer angeboten.</p>
+
+            <h3>12. Kontaktformular und Datenübertragung</h3>
+            <p>Die Nutzung des Kontaktformulars ist freiwillig. Wenn du dich entscheidest, das Formular auszufüllen, werden deine Daten unverschlüsselt übermittelt. Ich empfehle, keine sensiblen Daten wie Passwörter oder Finanzinformationen über das Kontaktformular zu senden.</p>
+
+            <h3>13. Änderungen dieser Datenschutzerklärung</h3>
+            <p>Ich behalte mir vor, diese Datenschutzerklärung jederzeit anzupassen. Änderungen werden auf dieser Seite veröffentlicht. Es ist ratsam, die Datenschutzerklärung regelmäßig zu überprüfen, um sicherzustellen, dass du über die aktuellsten Informationen zum Thema Datenschutz informiert bist.</p>
+
+            <h3>14. Verantwortlicher für den Datenschutz</h3>
+            <p>Da ich keine externen Dienstleister für die Datenverarbeitung einsetze, bin ich als alleiniger Betreiber der Website für die Verarbeitung und den Schutz deiner personenbezogenen Daten verantwortlich.</p>
+
+            <h3>15. Rechtsgrundlage der Verarbeitung</h3>
+            <p>Die Rechtsgrundlage für die Verarbeitung deiner personenbezogenen Daten ist Art. 6 Abs. 1 lit. a DSGVO, da du mit der Nutzung des Kontaktformulars deine Einwilligung zur Verarbeitung deiner Daten gibst.</p>
+
+        </div>
+    </div>
+    <div class="section footer">
+        <div class="footer-links">
+            <a href="/imprint/" target="_blank">{{ t['imprint'] }}</a>
+            <a href="/privacy/" target="_blank">{{ t['privacy'] }}</a>
+        </div>
+    </div>
+    <script src="{{ request.url_for('static', path='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+.venv
+.env
+.pyc
+__pycache__/
+messages.txt
+.DS_Store
+.vscode/
+messages.txt

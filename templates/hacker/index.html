@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{{ request.url_for('static', path='hacker-style.css') }}">
+</head>
+
+<body>
+    <section class="top-section">
+        <canvas id="matrix-background" class="fullscreen-canvas"></canvas>
+        <canvas id="grid-background" class="fullscreen-canvas"></canvas>
+        <div class="column divider">
+            <div class="row">
+                <div class="column three">
+                    <div class="frame dark" id="spinning-earth">
+                    </div>
+                    <div class="frame">
+                        <h2>Hello World</h2>
+                    </div>
+                </div>
+                <div class="column three center">
+                    <div class="frame profile-picture-frame">
+                        <!-- <img src="{{ request.url_for('static', path='pics/picture-of-me-scaled-down.png') }}" alt="Profile picture" width="260" height="260"> -->
+                         <p>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣶⣿⣿⣿⣿⣿⣶⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣽⣿⣿⣿⣿⣿⣿⣿⡟⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⡿⠁
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⢻⣿⣿⣿⣿⣿⣿⡀
+⠀⠀⠀⠀⢀⣠⣤⣴⣾⣿⣿⣿⠛⠀⠙⡿⠟⠋⠀⣿⣿⣦⣄⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⡟⠀⣰⣿⣿⣆⠀⢰⣿⣿⣿⣿⣿⣷⣶⣄⡀⠀⠀
+⠀⠀⢰⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⣰⣿⣷⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀
+⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢰⣿⣿⣿⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀
+⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣿⣿⣿⣿⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇</p>
+                    </div>
+                </div>
+                <div class="column three">
+                    <div class="framelist">
+                        <div class="frame text-frame">
+                            <p>Name</p>
+                        </div>
+                        <div class="frame text-frame">
+                            <p>Age</p>
+                        </div>
+                        <div class="frame text-frame">
+                            <p>Git Hub</p>
+                        </div>
+                        <div class="frame text-frame"></div>
+                        <div class="frame text-frame"></div>
+                        <div class="frame text-frame"></div>
+                        <div class="frame text-frame"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="console">
+                <div id="console-output">
+                    <p>> Hello World</p>
+                </div>
+                <input type="text" id="console-textfield" name="console-textfield" value="" onkeydown="consoleEntry(this)">
+            </div>
+        </div>
+    </section>
+    <script src="{{ request.url_for('static', path='src/classes/canvas.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/hacker-background.js') }}"></script>
+    
+    <script src="{{ request.url_for('static', path='src/classes/message.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/terminal-functions/basics.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/terminal-functions/delay.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/data/terminal-data.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/classes/terminal.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/console-manager.js') }}"></script>
+
+
+    <script src="{{ request.url_for('static', path='src/data/matrix-earth-ascii.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/matrix-earth.js') }}"></script>
+</body>
+</html>
