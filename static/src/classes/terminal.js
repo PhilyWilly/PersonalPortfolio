@@ -28,28 +28,59 @@ class Terminal {
 
     async answerUserInput(input) {
         const keywords = input.trim().toLowerCase().split(" ");
-        const firstKeyword = keywords[0];
-        let answered = false;
+        const keywordLength = keywords.length;
 
-        commandLoop: for (let command of terminalData) {
+        let answered = false;
+        let helpCommandText = helpText;
+        let commandDataSet = terminalData;
+        
+        // Looks if the keyword is in the command object
+        function isKeywordInDataSet(keyword, command) {
             for (let commandKeyword of command["eng-com"]) {
-                if (commandKeyword === firstKeyword) {
-                    command["eng-ans"](this);
-                    answered = true;
-                    break commandLoop;
+                if (commandKeyword === keyword) {
+                    return true;
                 }
             }
             for (let commandKeyword in command["ger-com"]) {
-                if (commandKeyword === firstKeyword) {
-                    command["eng-ans"](this);
-                    answered = false;
-                    break commandLoop;
+                if (commandKeyword === keyword) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function giveCommandObject(keyword, commandSet) {
+            for (let command of commandSet) { // Itterate through each command in the command data
+                if (isKeywordInDataSet(keyword, command)) { // If the command matches the keyword
+                    return command
                 }
             }
         }
 
+        for (let i = 0; i < keywordLength; i++) { // Itterate through each input keyword
+            const commandObject = giveCommandObject(keywords[i], commandDataSet);
+            if (commandObject === undefined) {
+                if (i == keywordLength-1) {
+                    if (keywords[i] === "-h" || keywords[i] === "--help") {
+                        console.log("HELPPP");
+                        this.log(helpCommandText);
+                        answered = true;
+                        break;
+                    }
+                }
+                break;
+            }
+
+            if (i == keywordLength-1) { // If this is the last keyword
+                commandObject["eng-ans"](this);
+                answered = true;
+            }
+            commandDataSet = commandObject["sub-com"]; // Set new command palette
+            helpCommandText = commandObject["help"]; // Save the current help command
+        }
+
         if (!answered) {
-            this.log(`Command '${input}' not found!`);
+            this.log(`Command '${input}' not found! \n  Here is provided help: ${helpCommandText}`);
         }
     }
 }
