@@ -18,7 +18,7 @@
                     <div class="frame dark" id="spinning-earth">
                     </div>
                     <div class="frame">
-                        <h2>Hello World</h2>
+                        <h2 id="bitcoin-container">Hello World</h2>
                     </div>
                 </div>
                 <div class="column three center">
@@ -66,6 +66,8 @@
     </section>
     <script src="{{ request.url_for('static', path='src/classes/canvas.js') }}"></script>
     <script src="{{ request.url_for('static', path='src/hacker-background.js') }}"></script>
+
+    <script src="{{ request.url_for('static', path='src/bitcoin-reciever.js') }}"></script>
     
     <script src="{{ request.url_for('static', path='src/classes/message.js') }}"></script>
     <script src="{{ request.url_for('static', path='src/terminal-functions/basics.js') }}"></script>

@@ -1,6 +1,7 @@
 fastapi
 fastapi_mail
 uvicorn
+websockets
 
 itsdangerous
 python-multipart

@@ -1,5 +1,5 @@
 import json
-from fastapi import FastAPI, Request, Form, status, Depends
+from fastapi import FastAPI, Request, Form, status, Depends, WebSocket
 from fastapi.responses import FileResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -8,6 +8,8 @@ from pydantic import BaseModel, EmailStr
 from starlette.middleware.sessions import SessionMiddleware
 import os
 from dotenv import load_dotenv
+import asyncio
+import random
 
 # Load secrets :3
 load_dotenv()
@@ -100,6 +102,18 @@ async def get_ip(request: Request):
     client_ip = request.client.host
     print(client_ip)
     return {"status": "success", "ip": client_ip}
+
+@app.websocket("/ws/bitcoin")
+async def websocket_bitcoin(websocket: WebSocket):
+    await websocket.accept()
+    try:
+        while True:
+            await websocket.send_text(f"BTC: {random.random()* 60000}")
+            await asyncio.sleep(1)
+    except:
+        print("Something went wrong with the websocket!!")
+            
+
 
 @app.get("/download-cv")
 async def download_cv(request: Request):
