@@ -22,6 +22,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates/hacker")
 
+
 # Language configs
 def load_translations(lang):
     with open(f"languages/{lang}.json", encoding="utf-8") as f:
@@ -107,6 +108,7 @@ async def get_ip(request: Request):
 async def websocket_bitcoin(websocket: WebSocket):
     await websocket.accept()
     try:
+        
         while True:
             await websocket.send_text(f"BTC: {random.random()* 60000}")
             await asyncio.sleep(1)

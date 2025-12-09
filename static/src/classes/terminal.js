@@ -36,12 +36,12 @@ class Terminal {
         
         // Looks if the keyword is in the command object
         function isKeywordInDataSet(keyword, command) {
-            for (let commandKeyword of command["eng-com"]) {
+            for (let commandKeyword of command['eng-com']) {
                 if (commandKeyword === keyword) {
                     return true;
                 }
             }
-            for (let commandKeyword in command["ger-com"]) {
+            for (let commandKeyword in command['ger-com']) {
                 if (commandKeyword === keyword) {
                     return true;
                 }
@@ -49,6 +49,7 @@ class Terminal {
             return false;
         }
 
+        // Returns the command object of the keyword in a given set
         function giveCommandObject(keyword, commandSet) {
             for (let command of commandSet) { // Itterate through each command in the command data
                 if (isKeywordInDataSet(keyword, command)) { // If the command matches the keyword
@@ -61,8 +62,7 @@ class Terminal {
             const commandObject = giveCommandObject(keywords[i], commandDataSet);
             if (commandObject === undefined) {
                 if (i == keywordLength-1) {
-                    if (keywords[i] === "-h" || keywords[i] === "--help") {
-                        console.log("HELPPP");
+                    if (keywords[i] === '-h' || keywords[i] === '--help') {
                         this.log(helpCommandText);
                         answered = true;
                         break;
@@ -72,11 +72,17 @@ class Terminal {
             }
 
             if (i == keywordLength-1) { // If this is the last keyword
-                commandObject["eng-ans"](this);
-                answered = true;
+                if ('eng-ans' in commandObject) {
+                    commandObject['eng-ans'](this);
+                    answered = true;
+                }
+                else if ('help' in commandObject) {
+                    this.log(commandObject['help']);
+                    answered = true;
+                }
             }
-            commandDataSet = commandObject["sub-com"]; // Set new command palette
-            helpCommandText = commandObject["help"]; // Save the current help command
+            commandDataSet = commandObject['sub-com']; // Set new command palette
+            helpCommandText = commandObject['help']; // Save the current help command
         }
 
         if (!answered) {

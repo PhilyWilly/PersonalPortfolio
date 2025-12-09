@@ -57,6 +57,37 @@ terminalData.push({
     }]
 });
 
+terminalData.push({
+    "eng-com": ["bitcoin"],
+    "help": "This command is for handling the connection to the blockchain bitcoin server",
+    "sub-com": [
+        {
+            "eng-com": ["start"],
+            "eng-ans": (terminal) => {
+                connectToBitcoin();
+                terminal.log("Connected sucessfully!")
+            },
+            "help": "This starts the bitcoin stream"
+        },
+        {
+            "eng-com": ["stop", "pause"],
+            "eng-ans": (terminal) => {
+                disconnectFromBitcoin();
+                terminal.log("Disconnected sucessfully!")
+            },
+            "help": "This stops the bitcoin stream"
+        },
+        {
+            "eng-com": ["clear"],
+            "eng-ans": (terminal) => {
+                clearBitcoinContainer();
+                terminal.log("Cleared bitcoin container sucessfully!")
+            },
+            "help": "Clears the bitcoin container"
+        }
+    ]
+});
+
 
 const helpText = `Usefull commands:
     help        - Provides an overview of commands

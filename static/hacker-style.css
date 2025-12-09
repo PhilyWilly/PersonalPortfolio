@@ -204,3 +204,22 @@ td {
 #spinning-earth {
     font-size: x-small;
 }
+
+/* Bitcoin websocket */
+#bitcoin-container {
+    max-height: 16vh;
+    padding: 8px 12px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+#bitcoin-container::-webkit-scrollbar {
+    display: none;
+}
+.ellipse-shortener {
+    width: 69px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
