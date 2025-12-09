@@ -18,7 +18,7 @@ function disconnectFromBitcoin() {
     bitcoinWebsocket.send('{"op": "unconfirmed_unsub"}');
 }
 function clearBitcoinContainer() {
-    bitcoinHTMLContainer.innerHTML = "<h2 style='margin: 38px 32px'>Bitcoin!</h2>";
+    bitcoinHTMLContainer.innerHTML = "<div style='margin: 38px 32px'><h2>Bitcoin!</h2><p>type '<code>bitcoin start</code>' in the console</p></div>";
 }
 
 bitcoinWebsocket.onmessage = function(event) {
