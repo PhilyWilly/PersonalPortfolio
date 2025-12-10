@@ -20,7 +20,7 @@ app.add_middleware(SessionMiddleware, secret_key=os.urandom(24))
 # Static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-templates = Jinja2Templates(directory="templates/hacker")
+templates = Jinja2Templates(directory="templates")
 
 
 # Language configs
