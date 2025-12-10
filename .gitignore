@@ -5,4 +5,5 @@ __pycache__/
 messages.txt
 .DS_Store
 .vscode/
+.VSCodeCounter/
 messages.txt

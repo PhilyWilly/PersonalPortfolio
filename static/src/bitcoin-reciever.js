@@ -4,10 +4,9 @@ let hashList = [];
 const bitcoinListLength = 16;
 
 //const bitcoinWebsocket = new WebSocket("ws://127.0.0.1:9600/ws/bitcoin")
-const bitcoinWebsocket = new WebSocket("wss://ws.blockchain.info/inv");
+const bitcoinWebsocket = new WebSocket("wss://ws.blockchain.info/inv"); // Blockchain live connection :3
 
 bitcoinWebsocket.addEventListener("open", () => {
-    console.log("CONNECTED");
     clearBitcoinContainer();
 });
 

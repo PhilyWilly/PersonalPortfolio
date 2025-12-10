@@ -4,6 +4,9 @@
  * List<String> eng-com: is the english trigger command
  * List<String> ger-com: is ther german trigger command
  * 
+ * bool secret: this wont show in any help menu :3
+ * bool uses-input: this uses the rest of the command as a input of the answer function (cant be used with sub-com)
+ * 
  * function(terminal) eng-ans: is the english answer to the command 
  * 
  * String help: will return a helper text for the command 
@@ -13,6 +16,14 @@
 
 let terminalData = [];
 
+// Help command has to be at index one
+terminalData[0] = {
+    "eng-com": ["help"],
+    "ger-com": ["hilfe"],
+    "eng-ans": (terminal) => terminal.log(helpText),
+    "help": "This command will return the help menu to use the terminal"
+};
+
 terminalData.push({
     "eng-com": ["age"],
     "ger-com": ["alter"],
@@ -21,17 +32,17 @@ terminalData.push({
 });
 
 terminalData.push({
+    "eng-com": ["echo", "print", "say"],
+    "uses-input": true,
+    "eng-ans": (terminal, input) => terminal.log(input),
+    "help": "This command will echo what is written after the echo in the terminal. For logging purposes"
+});
+
+terminalData.push({
     "eng-com": ["name", "firstname", "lastname"],
     "ger-com": ["vorname", "nachname"],
     "eng-ans": (terminal) => terminal.log("David Wesch"),
     "help": "This command will return the full name of David"
-});
-
-terminalData.push({
-    "eng-com": ["help"],
-    "ger-com": ["hilfe"],
-    "eng-ans": (terminal) => terminal.log(helpText),
-    "help": "This command will return the help menu to use the terminal"
 });
 
 terminalData.push({
@@ -52,9 +63,17 @@ terminalData.push({
     "help": "This command will determine the current ping between server and client",
     "sub-com": [{
         "eng-com": ["fake"],
+        "secret": true,
         "eng-ans": (terminal) => terminal.log("Ping: 0ms"),
         "help": "This is a test for the ping method. For testing only!"
     }]
+});
+
+terminalData.push({
+    "eng-com": [":3"],
+    "secret": true,
+    "eng-ans": async (terminal) => terminal.log(":3"),
+    "help": "IYKYK",
 });
 
 terminalData.push({
@@ -87,13 +106,3 @@ terminalData.push({
         }
     ]
 });
-
-
-const helpText = `Usefull commands:
-    help        - Provides an overview of commands
-    ipconfig    - Fetches the public ip adress
-    ping        - Pings the server 
-    name        - My name
-    age         - My age
-    ping        - Pings the server 
-`;
