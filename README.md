@@ -1,8 +1,8 @@
-# 🎨 Personal Portfolio
+# Personal Portfolio
 
 A modern, interactive personal portfolio website built with **FastAPI** and **JavaScript**, featuring multi-language support and a sleek hacker-style interface.
 
-## ✨ Features
+## Features
 
 - **Multi-Language Support**: English and German translations
 - **Interactive Canvas**: Dynamic background animations with ASCII art elements
@@ -12,7 +12,7 @@ A modern, interactive personal portfolio website built with **FastAPI** and **Ja
 - **Matrix Earth Visualization**: Unique ASCII art representation of Earth
 - **Terminal Emulator**: Interactive terminal interface for creative interaction
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.8+
@@ -48,7 +48,7 @@ python3 main.py
 
 The portfolio will be available at `http://localhost:9600`
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 PersonalPortfolio/
@@ -82,7 +82,7 @@ PersonalPortfolio/
     └── index.html         
 ```
 
-## 🛠️ Technologies
+## Technologies
 
 - **Backend**: FastAPI, Python
 - **Frontend**: HTML5, CSS3, JavaScript
@@ -91,7 +91,7 @@ PersonalPortfolio/
 - **Styling**: Custom CSS with responsive design
 - **Localization**: JSON-based translation system
 
-## 🎯 Key Features Explained
+## Key Features Explained
 
 ### Multi-Language Support
 - Automatic language detection from browser preferences
@@ -110,11 +110,11 @@ A custom terminal emulator that allows visitors to interact with the site in a c
 - Form validation
 - Support for multiple messages
 
-## 📧 Contact & Messages
+## Contact & Messages
 
 Visitors can send messages through the contact form, which are stored and can be sent via email using your configured SMTP server.
 
-## 🎨 Customization
+## Customization
 
 ### Change Personal Information
 Edit the HTML templates in `templates/` to update your name, description, and content
@@ -122,17 +122,17 @@ Edit the HTML templates in `templates/` to update your name, description, and co
 ### Modify Translations
 Update `languages/en.json` and `languages/de.json` with your preferred content
 
-## 📝 License
+## License
 
 This project is open source and available under the MIT License.
 
-## 👤 Author
+## Author
 
 **David Wesch**
 - Portfolio: [Live Demo](http://localhost:8000)
 - GitHub: [@PhilyWilly](https://github.com/PhilyWilly)
 
-## 📬 Support
+## Support
 
 Have questions or found a bug? Feel free to open an issue on GitHub.
 
