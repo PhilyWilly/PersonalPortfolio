@@ -129,7 +129,7 @@ This project is open source and available under the MIT License.
 ## Author
 
 **David Wesch**
-- Portfolio: [Live Demo](davidwesch.de)
+- Portfolio: [Live Demo](https://davidwesch.de)
 - GitHub: [@PhilyWilly](https://github.com/PhilyWilly)
 
 ## Support
