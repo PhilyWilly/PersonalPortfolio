@@ -18,6 +18,7 @@ function disconnectFromBitcoin() {
 }
 function clearBitcoinContainer() {
     bitcoinHTMLContainer.innerHTML = "<div style='margin: 38px 32px'><h2>Bitcoin!</h2><p>type '<code>bitcoin start</code>' in the console</p></div>";
+    resizeFrames();
 }
 
 bitcoinWebsocket.onmessage = function(event) {
@@ -45,5 +46,6 @@ bitcoinWebsocket.onmessage = function(event) {
 
     bitcoinHTMLContainer.innerHTML = bitcoinString;
     bitcoinHTMLContainer.scrollTop = bitcoinHTMLContainer.scrollHeight;
+    resizeFrames();
 }
 

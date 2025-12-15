@@ -14,6 +14,11 @@ class Terminal {
         })
     }
 
+    clear() {
+        this.messages = [];
+        this.update();
+    }
+
     async userInput(input) {
         this.messages.push(new Message(input, true));
         this.update();
@@ -67,13 +72,19 @@ class Terminal {
                 if ('secret' in sub && sub['secret']) continue;
                 if (!subCommands) terminal.log("Sub-commands:");
                 subCommands = true;
-                terminal.log("  " + sub['eng-com'][0] + ": " + sub['help']);
+                terminal.log("  " + sub['eng-com'][0] + ": \t" + sub['help']);
+            }
+        }
+
+        function getHelpCommandObject() {
+            for (let command of terminalData) {
+                if (command["eng-com"][0] === "help") return command;
             }
         }
 
         function helpText(terminal, commandObject) {
             if (commandObject == undefined) {
-                commandObject = terminalData[0]; // Help command
+                commandObject = getHelpCommandObject();
             }
             if (commandObject['eng-com'][0] === 'help') {
                 terminal.log("This is a terminal! Feel free to try out these commands:");

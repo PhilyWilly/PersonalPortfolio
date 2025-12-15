@@ -61,44 +61,27 @@ td {
 .frame {
     display: inline-block;
     background-color: transparent;
-    border: 3px solid var(--primary);
-
-    transition: all var(--transition-duration-hover);
-    transition-timing-function: ease;
-
     margin: 8px;
+    padding: 0px;
 }
 .frame:hover {
-    border-color: var(--light);
-    color: var(--light);
-    border-width: 5px;
-    margin: 6px;
     cursor: pointer;
 }
-.frame.dark {
-    border-color: var(--color);
-    color: var(--color);
-}
-.frame.dark:hover {
-    border-color: var(--secondary);
-    color: var(--secondary);
+.canvas-frame {
+    position: absolute;
 }
 
 .profile-picture-frame {
     padding: 0px;
-    /* height: 260px;
-    width: 260px; */
     width: 300px;
 }
 .frame > p {
     user-select: none;
 }
 
-.text-frame {
-    padding: 2px 12px;
-}
 .text-frame > p {
-    margin: 4px 2px;
+    margin: 8px 12px;
+    margin-top: 16px;;
     font-size: large;
 }
 
@@ -163,6 +146,7 @@ td {
 
     font-size: large;
     overflow-y: auto;
+    overflow-x: visible;
 
     scrollbar-width: thin;
     scrollbar-color: var(--secondary) transparent;

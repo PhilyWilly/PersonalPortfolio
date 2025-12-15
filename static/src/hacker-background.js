@@ -76,11 +76,11 @@ function sizedMatrix() {
 }
 
 const matrixCanvas = new Canvas('matrix-background');
-matrixCanvas.resizeCanvasToFullSize();
+matrixCanvas.resizeToFullSize();
 let matrix = sizedMatrix();
 
 const gridCanvas = new Canvas('grid-background');
-gridCanvas.resizeCanvasToFullSize();
+gridCanvas.resizeToFullSize();
 gridCanvas.paintGrid();
 
 function matrixFrame() {
@@ -90,16 +90,3 @@ function matrixFrame() {
 }
 
 setInterval(matrixFrame, speed);
-
-// Add window resize listener to redraw canvas with proper proportions
-window.addEventListener('resize', function () {
-    // Debounce the resize event to avoid too many redraws
-    clearTimeout(window.resizeTimer);
-    window.resizeTimer = setTimeout(function () {
-        matrixCanvas.resizeCanvasToFullSize();
-        matrix = sizedMatrix();
-        
-        gridCanvas.resizeCanvasToFullSize();
-        gridCanvas.paintGrid();
-    }, 150);
-});

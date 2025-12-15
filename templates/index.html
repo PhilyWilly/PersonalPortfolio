@@ -15,14 +15,18 @@
         <div class="column divider full-width">
             <div class="row">
                 <div class="column three full-width" style="padding: 32px;">
-                    <div class="frame dark text-center" id="spinning-earth">
+                    <div class="frame dark">
+                        <canvas class="canvas-frame"></canvas>
+                        <div id="spinning-earth" class="text-center"></div>
                     </div>
                     <div class="frame">
+                        <canvas class="canvas-frame"></canvas>
                         <div id="bitcoin-container">Hello World</div>
                     </div>
                 </div>
                 <div class="column three center">
                     <div class="frame profile-picture-frame">
+                        <canvas class="canvas-frame"></canvas>
                         <!-- <img src="{{ request.url_for('static', path='pics/picture-of-me-scaled-down.png') }}" alt="Profile picture" width="260" height="260"> -->
                         <p>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣶⣿⣿⣿⣿⣿⣶⡀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿
@@ -41,18 +45,21 @@
                 <div class="column three">
                     <div class="framelist">
                         <div class="frame text-frame">
+                            <canvas class="canvas-frame"></canvas>
                             <p>Name</p>
                         </div>
                         <div class="frame text-frame">
+                            <canvas class="canvas-frame"></canvas>
                             <p>Age</p>
                         </div>
                         <div class="frame text-frame">
+                            <canvas class="canvas-frame"></canvas>
                             <p>Git Hub</p>
                         </div>
-                        <div class="frame text-frame"></div>
-                        <div class="frame text-frame"></div>
-                        <div class="frame text-frame"></div>
-                        <div class="frame text-frame"></div>
+                        <div class="frame text-frame">
+                            <canvas class="canvas-frame"></canvas>
+                            <p>CV</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -64,8 +71,13 @@
             </div>
         </div>
     </section>
+    <script src="{{ request.url_for('static', path='src/useful-methods.js') }}"></script>
+
     <script src="{{ request.url_for('static', path='src/classes/canvas.js') }}"></script>
     <script src="{{ request.url_for('static', path='src/hacker-background.js') }}"></script>
+
+    <script src="{{ request.url_for('static', path='src/classes/frame.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/frame.js') }}"></script>
 
     <script src="{{ request.url_for('static', path='src/bitcoin-reciever.js') }}"></script>
     
@@ -79,5 +91,7 @@
 
     <script src="{{ request.url_for('static', path='src/data/matrix-earth-ascii.js') }}"></script>
     <script src="{{ request.url_for('static', path='src/matrix-earth.js') }}"></script>
+
+    <script src="{{ request.url_for('static', path='src/window-size-manager.js') }}"></script>
 </body>
 </html>

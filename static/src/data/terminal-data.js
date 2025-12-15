@@ -32,6 +32,13 @@ terminalData.push({
 });
 
 terminalData.push({
+    "eng-com": ["clear", "clr"],
+    "ger-com": ["löschen"],
+    "eng-ans": (terminal) => terminal.clear(),
+    "help": "This command will clear the console"
+});
+
+terminalData.push({
     "eng-com": ["echo", "print", "say"],
     "uses-input": true,
     "eng-ans": (terminal, input) => terminal.log(input),
@@ -72,7 +79,7 @@ terminalData.push({
 terminalData.push({
     "eng-com": [":3"],
     "secret": true,
-    "eng-ans": async (terminal) => terminal.log(":3"),
+    "eng-ans": async (terminal) => terminal.log("LY :3"),
     "help": "IYKYK",
 });
 
@@ -103,6 +110,18 @@ terminalData.push({
                 terminal.log("Cleared bitcoin container sucessfully!")
             },
             "help": "Clears the bitcoin container"
+        }
+    ]
+});
+
+terminalData.push({
+    "eng-com": ["ascii"],
+    "help": "This command controlls the ascii art window",
+    "sub-com": [
+        {
+            "eng-com": ["earth"],
+            "eng-ans": (terminal) => console.log("TODO IMPLEMENT ASCII ANIMATION CHANGING!!"), // TODO
+            "help": "This displays a spinning earth"
         }
     ]
 });
