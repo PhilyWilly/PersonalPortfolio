@@ -18,13 +18,16 @@ const frameAnimationDuration = 25; // in ms
 
 for (let i = 0; i < htmlFrames.length; i++) {
     // Dont do anything if the object isnt a canvas
-    const frameHTMLType = htmlFrames[i].attributes.class.ownerElement.localName;
+    const frameHTMLType = htmlFrames[i].localName;
     if (frameHTMLType !== "canvas") continue;
     
     // Create canvas object
     const id = "canvas-frame-" + i; 
     htmlFrames[i].id = id;
     frames[i] = new Frame(new Canvas(id));
+    if (htmlFrames[i].parentElement.classList.value.includes("dark")) {
+        frames[i].isDark = true;
+    }
 
     // Mouse functions for animations
     frames[i].canvas.canvas.onmouseenter = mouseEnterFrame;
@@ -46,7 +49,13 @@ function paintFrame(index) {
     const animationState = easeInOut(frames[index].state);
     const edge = lerp(14, 16, animationState);
     const lineWidth = lerp(3, 4, animationState);
-    const color = hslaColorLerp(frameColor, frameColorHover, animationState);
+    let color;
+    if (frames[index].isDark) {
+        color = hslaColorLerp(frameColorDark, frameColorDarkHover, animationState);
+    }
+    else {
+        color = hslaColorLerp(frameColor, frameColorHover, animationState);
+    }
     frames[index].canvas.paintFrame(edge, lineWidth, color, animationState);
 }
 

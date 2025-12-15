@@ -61,8 +61,12 @@ td {
 .frame {
     display: inline-block;
     background-color: transparent;
+    color: var(--primary);
     margin: 8px;
     padding: 0px;
+}
+.frame.dark {
+    color: var(--color);
 }
 .frame:hover {
     cursor: pointer;
