@@ -14,6 +14,7 @@ let frames = []; // Frame objects
 // Animations
 const frameAnimationSteps = 8;
 const frameAnimationDuration = 25; // in ms
+const clickValue = 0.4;
 
 
 for (let i = 0; i < htmlFrames.length; i++) {
@@ -32,7 +33,8 @@ for (let i = 0; i < htmlFrames.length; i++) {
     // Mouse functions for animations
     frames[i].canvas.canvas.onmouseenter = mouseEnterFrame;
     frames[i].canvas.canvas.onmouseleave = mouseLeaveFrame;
-    frames[i].canvas.canvas.onclick = mouseClickFrame;
+    frames[i].canvas.canvas.onmousedown = mouseClickFrame;
+    frames[i].canvas.canvas.onmouseup = mouseUnclickFrame;
 
     resizeFrames();
 }
@@ -48,7 +50,7 @@ function getCanvasFromID(canvasID) {
 function paintFrame(index) {
     const animationState = easeInOut(frames[index].state);
     const edge = lerp(14, 16, animationState);
-    const lineWidth = lerp(3, 4, animationState);
+    const lineWidth = lerp(2, 3, animationState);
     let color;
     if (frames[index].isDark) {
         color = hslaColorLerp(frameColorDark, frameColorDarkHover, animationState);
@@ -60,40 +62,70 @@ function paintFrame(index) {
 }
 
 function animateFrame(index) {
-    if (frames[index].direction) {
-        frames[index].state += 1/frameAnimationSteps;
+    try {
+        // console.log("[ DEBUG ] " + frames[index].direction);
+        if (frames[index].direction === "hover") {
+            frames[index].state += 1/frameAnimationSteps;
+            if (frames[index].state >= 1) {
+                frames[index].state = 1; 
+                return;
+            }
+        }
+        else if (frames[index].direction === "clicked") {
+            if (frames[index].state <= (clickValue+1/frameAnimationSteps) && frames[index].state >= (clickValue-1/frameAnimationSteps)) {
+                frames[index].state = clickValue; 
+                return;
+            }
+            if (frames[index].state > clickValue) {
+                frames[index].state -= 1/frameAnimationSteps;
+            }
+            else {
+                frames[index].state += 1/frameAnimationSteps;
+            }
+            if (frames[index].state <= (clickValue+1/frameAnimationSteps) && frames[index].state >= (clickValue-1/frameAnimationSteps)) {
+                frames[index].stater = clickValue; 
+                return;
+            }
+        }
+        else {
+            frames[index].state -= 1/frameAnimationSteps;
+            if (frames[index].state <= 0) {
+                frames[index].state = 0; 
+                return;
+            }
+        }
+    
+        setTimeout(() => animateFrame(index), frameAnimationDuration);
     }
-    else {
-        frames[index].state -= 1/frameAnimationSteps;
+    finally {
+        paintFrame(index);
     }
-    if (frames[index].state >= 1) {
-        frames[index].state = 1; 
-        return;
-    }
-    if (frames[index].state <= 0) {
-        frames[index].state = 0;
-        return;
-    }
-    paintFrame(index);
-    setTimeout(() => animateFrame(index), frameAnimationDuration);
 }
 
 function mouseEnterFrame(event) {
     const id = event.target.id;
     const index = extractIndexFromID(id);
-    frames[index].direction = true;
+    frames[index].direction = "hover";
     setTimeout(() => animateFrame(index), frameAnimationDuration);
 }
 function mouseLeaveFrame(event) {
     const id = event.target.id;
     const index = extractIndexFromID(id);
-    frames[index].direction = false;
+    frames[index].direction = "neutral";
     setTimeout(() => animateFrame(index), frameAnimationDuration);
     
 }
 function mouseClickFrame(event) {
-    console.log("Mouse clicked!" + event.target.id);
-    const canvas = getCanvasFromID(event.target.id);
+    const id = event.target.id;
+    const index = extractIndexFromID(id);
+    frames[index].direction = "clicked";
+    setTimeout(() => animateFrame(index), frameAnimationDuration);
+}
+function mouseUnclickFrame(event) {
+    const id = event.target.id;
+    const index = extractIndexFromID(id);
+    frames[index].direction = "hover";
+    setTimeout(() => animateFrame(index), frameAnimationDuration);
 }
 
 function resizeFrames() {

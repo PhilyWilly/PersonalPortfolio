@@ -90,12 +90,12 @@ class Canvas {
         this.ctx.stroke();
 
         const stripes = 3;
-        const stripesHeight = 9;
-        const stripedHeightStretch = 6;
+        const stripesHeight = 6;
+        const stripedHeightStretch = 4;
         const offsetX = 12;
-        const stripesWidth = 6;
+        const stripesWidth = 4;
         const stripedWidthStretch = 2;
-        const xStart = 12;
+        const xStart = 8;
 
         // Paint stripes on the frame
         for (let i = 0; i < stripes; i++) {
