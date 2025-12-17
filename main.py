@@ -104,6 +104,15 @@ async def get_ip(request: Request):
     print(client_ip)
     return {"status": "success", "ip": client_ip}
 
+@app.get("/tiktok/random")
+async def get_ip(request: Request):
+    with open("static/src/data/tiktokDecember2025.json", 'r', encoding='utf-8') as file:
+        json_text = file.read()
+        json_data = json.loads(json_text)
+
+        return {"status": "sucess", "url": random.choice(json_data)}
+
+
 @app.websocket("/ws/bitcoin")
 async def websocket_bitcoin(websocket: WebSocket):
     await websocket.accept()

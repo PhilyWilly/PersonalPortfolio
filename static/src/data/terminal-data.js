@@ -125,3 +125,27 @@ terminalData.push({
         }
     ]
 });
+
+terminalData.push({
+    "eng-com": ["tiktok"],
+    "help": "This command controlls everything asociated with tiktok",
+    "sub-com": [
+        {
+            "eng-com": ["open"],
+            "help": "This opens a tiktok",
+            "sub-com": [
+                {
+                    "eng-com": ["random"],
+                    "eng-ans": async (terminal) => {
+                        const url = await getRandomTikTokLink(terminal);
+                        terminal.log("Random liked tiktok url: '" + url + "'")
+                        terminal.log("Open tiktok in a new tab!");
+                        window.open(url, "_blank");
+
+                    }, 
+                    "help": "This opens a random liked tiktok from David"
+                }
+            ]
+        }
+    ]
+});
