@@ -24,17 +24,15 @@ for (let i = 0; i < htmlFrames.length; i++) {
     
     // Create canvas object
     const id = "canvas-frame-" + i; 
+    const dark = htmlFrames[i].parentElement.classList.value.includes("dark");
     htmlFrames[i].id = id;
-    frames[i] = new Frame(new Canvas(id));
-    if (htmlFrames[i].parentElement.classList.value.includes("dark")) {
-        frames[i].isDark = true;
-    }
+    frames[i] = new Frame(id, dark);
 
     // Mouse functions for animations
-    frames[i].canvas.canvas.onmouseenter = mouseEnterFrame;
-    frames[i].canvas.canvas.onmouseleave = mouseLeaveFrame;
-    frames[i].canvas.canvas.onmousedown = mouseClickFrame;
-    frames[i].canvas.canvas.onmouseup = mouseUnclickFrame;
+    frames[i].canvas.onmouseenter = mouseEnterFrame;
+    frames[i].canvas.onmouseleave = mouseLeaveFrame;
+    frames[i].canvas.onmousedown = mouseClickFrame;
+    frames[i].canvas.onmouseup = mouseUnclickFrame;
 
     resizeFrames();
 }
@@ -44,7 +42,7 @@ function extractIndexFromID(canvasID) {
 }
 function getCanvasFromID(canvasID) {
     const id = extractIndexFromID(canvasID);
-    return frames[id].canvas;
+    return frames[id];
 }
 
 function paintFrame(index) {
@@ -58,7 +56,7 @@ function paintFrame(index) {
     else {
         color = hslaColorLerp(frameColor, frameColorHover, animationState);
     }
-    frames[index].canvas.paintFrame(edge, lineWidth, color, animationState);
+    frames[index].paintFrame(edge, lineWidth, color, animationState);
 }
 
 function animateFrame(index) {
@@ -131,7 +129,7 @@ function mouseUnclickFrame(event) {
 function resizeFrames() {
     for (let i = 0; i < frames.length; i++) {
         // Set up the canvas
-        frames[i].canvas.resizeToParentSize();
+        frames[i].resizeToParentSize();
 
         // Paint the frame
         paintFrame(i);

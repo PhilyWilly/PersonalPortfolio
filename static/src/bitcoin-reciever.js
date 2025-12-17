@@ -1,6 +1,7 @@
 const bitcoinHTMLContainer = document.getElementById('bitcoin-container');
 let bitcoinList = [];
 let hashList = [];
+let connectedToWebsocket = false;
 const bitcoinListLength = 16;
 
 //const bitcoinWebsocket = new WebSocket("ws://127.0.0.1:9600/ws/bitcoin")
@@ -12,9 +13,11 @@ bitcoinWebsocket.addEventListener("open", () => {
 
 function connectToBitcoin() {
     bitcoinWebsocket.send('{"op": "unconfirmed_sub"}');
+    connectedToWebsocket = true;
 }
 function disconnectFromBitcoin() {
     bitcoinWebsocket.send('{"op": "unconfirmed_unsub"}');
+    connectedToWebsocket = false;
 }
 function clearBitcoinContainer() {
     bitcoinHTMLContainer.innerHTML = "<div style='margin: 38px 32px'><h2>Bitcoin!</h2><p>type '<code>bitcoin start</code>' in the console</p></div>";

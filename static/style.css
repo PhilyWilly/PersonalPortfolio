@@ -207,6 +207,7 @@ td {
 #bitcoin-container {
     max-height: 16vh;
     padding: 8px 12px;
+    margin-top: 16px;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;

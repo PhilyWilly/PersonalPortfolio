@@ -120,7 +120,7 @@ terminalData.push({
     "sub-com": [
         {
             "eng-com": ["earth"],
-            "eng-ans": (terminal) => console.log("TODO IMPLEMENT ASCII ANIMATION CHANGING!!"), // TODO
+            "eng-ans": (terminal) => terminal.log("TODO IMPLEMENT ASCII ANIMATION CHANGING!!"), // TODO
             "help": "This displays a spinning earth"
         }
     ]
