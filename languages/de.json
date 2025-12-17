@@ -3,6 +3,58 @@
     "age-label": "Alter",
     "cv-label": "Lebenslauf",
     "github-label": "Git Hub",
-    "imprint": "Impressum",
-    "privacy": "Datenschutz"
+    "legal-label": "Datenschutz",
+
+    "legal-page-title": "Impressum & Datenschutz",
+    "legal-page-heading": "Impressum & Datenschutz",
+
+    "imprint-heading": "Impressum (Anbieterkennzeichnung)",
+    "imprint-name": "Anbieter: David Wesch",
+    "imprint-address": "Adresse: P.O. Box",
+    "imprint-email": "E-Mail: info@davidwesch.de",
+    "imprint-phone": "Telefon: +49 163 7299329",
+
+    "hosting-heading": "Hosting",
+    "hosting-provider": "Hosting durch Render.com (Region: Frankfurt, EU)",
+
+    "data-processing-heading": "Datenverarbeitung (aktuell und geplant)",
+    "data-processing-contact": "Kontaktformular (Name, E-Mail, Nachricht) per E-Mail in mein Postfach; Speicherung bis zu 2 Jahre.",
+    "data-processing-terminal": "Terminal-Eingaben: Befehle und Zeitstempel zu Analyse/Sicherheit.",
+    "data-processing-quiz": "Quiz-Fortschritt lokal auf deinem Gerät (z. B. LocalStorage/Cookies).",
+    "data-processing-ip": "Mögliche IP-Protokollierung zum Schutz vor Angriffen/DoS (minimal, nur falls nötig).",
+    "data-processing-websocket": "Blockchain-Websocket verarbeitet derzeit keine personenbezogenen Daten.",
+    "data-processing-links": "Externe Links (GitHub, TikTok, Instagram, YouTube, LinkedIn usw.) führen zu Drittanbietern außerhalb meiner Kontrolle.",
+
+    "legal-bases-heading": "Rechtsgrundlagen",
+    "legal-bases-consent": "Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) für Kontaktformular und optionale Funktionen.",
+    "legal-bases-legitimate-interest": "Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO) für Sicherheit, Missbrauchsvermeidung, Stabilität und minimale Protokollierung.",
+    "legal-bases-contract": "Vorvertragliche Kommunikation (Art. 6 Abs. 1 lit. b DSGVO), wenn du eine Antwort anforderst.",
+
+    "retention-heading": "Speicherdauer",
+    "retention-contact": "Kontakt-Nachrichten: bis zu 2 Jahre, danach Löschung, sofern keine gesetzliche Aufbewahrungspflicht besteht.",
+    "retention-terminal": "Terminal- und Sicherheitsprotokolle: nur solange nötig für Analyse/Sicherheit, danach Löschung oder Anonymisierung.",
+
+    "rights-heading": "Deine Rechte",
+    "rights-access": "Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit (soweit anwendbar).",
+    "rights-rectification": "Berichtigung unrichtiger Daten.",
+    "rights-erasure": "Löschung, wenn die Rechtsgrundlage entfällt.",
+    "rights-objection": "Widerspruch gegen Verarbeitung auf Grundlage berechtigter Interessen und Widerruf von Einwilligungen jederzeit.",
+    "rights-complaint": "Beschwerderecht bei einer Aufsichtsbehörde (z. B. deinem Landesdatenschutzbeauftragten).",
+    "rights-contact": "Zur Wahrnehmung deiner Rechte oder für Löschungswünsche: info@davidwesch.de.",
+
+    "minors-heading": "Minderjährige",
+    "minors-text": "Diese Seite richtet sich an Besucher ab 16 Jahren. Bitte keine Daten absenden, wenn du unter 16 bist.",
+
+    "cookies-heading": "Cookies und Local Storage",
+    "cookies-text": "Geplante Quiz-Funktionen speichern Fortschritt lokal auf deinem Gerät (z. B. Cookies/LocalStorage). Es werden derzeit keine Drittanbieter-Tracker eingesetzt.",
+
+    "security-heading": "Sicherheit",
+    "security-text": "Sicherheitsmaßnahmen umfassen ggf. eingeschränkte Protokollierung und optionale IP-Erfassung ausschließlich zur Abwehr von Angriffen. Keine aktiven Analysedienste.",
+
+    "external-links-heading": "Externe Links",
+    "external-links-text": "Verlinkte Angebote (z. B. GitHub, TikTok, Instagram, YouTube, LinkedIn) sind Drittanbieter mit eigenen Datenschutzrichtlinien.",
+
+    "consent-contact-label": "Ich bestätige, dass ich 16+ bin und die Datenschutzhinweise akzeptiere.",
+
+    "last-updated": "Stand: 17. Dezember 2025"
 }

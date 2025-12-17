@@ -4,5 +4,58 @@
     "cv-label": "CV",
     "github-label": "Git Hub",
     "imprint": "Imprint",
-    "privacy": "Privacy"
+    "legal-label": "Privacy",
+
+    "legal-page-title": "Legal Notice & Privacy",
+    "legal-page-heading": "Legal Notice & Privacy",
+
+    "imprint-heading": "Imprint (Provider Identification)",
+    "imprint-name": "Provider: David Wesch",
+    "imprint-address": "Adress: P.O. Box",
+    "imprint-email": "Email: info@davidwesch.de",
+    "imprint-phone": "Phone: +49 163 7299329",
+
+    "hosting-heading": "Hosting",
+    "hosting-provider": "Hosting by Render.com (Region: Frankfurt, EU)",
+
+    "data-processing-heading": "Data Processing (present and planned)",
+    "data-processing-contact": "Contact form (name, email, message) via email to my inbox; stored for up to 2 years.",
+    "data-processing-terminal": "Terminal interactions: commands and timestamps for analytics/security.",
+    "data-processing-quiz": "Quiz progress stored locally on your device (e.g., localStorage/cookies).",
+    "data-processing-ip": "Possible IP logging for security/DDOS protection (minimal, only if needed).",
+    "data-processing-websocket": "Blockchain websocket currently processes no personal data.",
+    "data-processing-links": "External links (GitHub, TikTok, Instagram, YouTube, LinkedIn, etc.) open third-party sites outside my control.",
+
+    "legal-bases-heading": "Legal Bases",
+    "legal-bases-consent": "Consent (Art. 6(1)(a) GDPR) for contact form and optional features.",
+    "legal-bases-legitimate-interest": "Legitimate interests (Art. 6(1)(f) GDPR) for security, abuse prevention, service reliability, and minimal logging.",
+    "legal-bases-contract": "Contract-like communication steps (Art. 6(1)(b) GDPR) when you request a response.",
+
+    "retention-heading": "Retention",
+    "retention-contact": "Contact messages: up to 2 years, then deletion unless longer retention is legally required.",
+    "retention-terminal": "Terminal logs and security logs: only as long as needed for analysis/security, then deletion or anonymization.",
+
+    "rights-heading": "Your Rights",
+    "rights-access": "Access, rectification, deletion, restriction, portability where applicable.",
+    "rights-rectification": "Correction of inaccurate data.",
+    "rights-erasure": "Deletion where legal basis no longer applies.",
+    "rights-objection": "Objection to processing based on legitimate interests and withdrawal of consent at any time.",
+    "rights-complaint": "Right to lodge a complaint with a supervisory authority (e.g., your local DPA in the EU).",
+    "rights-contact": "To exercise your rights or request deletion, email info@davidwesch.de.",
+
+    "minors-heading": "Minors",
+    "minors-text": "This site targets visitors 16+. Please do not submit data if you are under 16.",
+
+    "cookies-heading": "Cookies and Local Storage",
+    "cookies-text": "Planned quizzes may store progress locally on your device (e.g., cookies/localStorage). No third-party trackers are used at this time.",
+
+    "security-heading": "Security",
+    "security-text": "Security measures include restricted logging and optional IP capture solely for abuse/attack prevention. No analytics services are active.",
+
+    "external-links-heading": "External Links",
+    "external-links-text": "Linked sites (e.g., GitHub, TikTok, Instagram, YouTube, LinkedIn) are third-party services with their own privacy policies.",
+
+    "consent-contact-label": "I confirm I am 16+ and agree to the privacy notice.",
+
+    "last-updated": "Last updated: 17 December 2025"
 }

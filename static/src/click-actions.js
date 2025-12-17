@@ -16,5 +16,8 @@ function clickCV() {
     window.location.href = '/download-cv';
 }
 function clickGitHub() {
-    window.open('https://github.com/PhilyWilly', '_blank');
+    window.open('https://github.com/PhilyWilly');
+}
+function clickLegal() {
+    window.open('/legal');
 }

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ t['legal-page-title'] }}</title>
+    <link rel="stylesheet" href="{{ request.url_for('static', path='style.css') }}">
+    <style>section, h1, p {margin-left: 64px; margin-right: 64px;}</style>
+</head>
+<body>
+    <canvas id="matrix-background" class="fullscreen-canvas"></canvas>
+    <canvas id="grid-background" class="fullscreen-canvas"></canvas>
+    <h1>{{ t['legal-page-heading'] }}</h1>
+
+    <section>
+        <h2>{{ t['imprint-heading'] }}</h2>
+        <p>{{ t['imprint-name'] }}</p>
+        <p>{{ t['imprint-address'] }}</p>
+        <p>{{ t['imprint-email'] }}</p>
+        <p>{{ t['imprint-phone'] }}</p>
+    </section>
+
+    <section>
+        <h2>{{ t['hosting-heading'] }}</h2>
+        <p>{{ t['hosting-provider'] }}</p>
+    </section>
+
+    <section>
+        <h2>{{ t['data-processing-heading'] }}</h2>
+        <ul>
+            <li>{{ t['data-processing-contact'] }}</li>
+            <li>{{ t['data-processing-terminal'] }}</li>
+            <li>{{ t['data-processing-quiz'] }}</li>
+            <li>{{ t['data-processing-ip'] }}</li>
+            <li>{{ t['data-processing-websocket'] }}</li>
+            <li>{{ t['data-processing-links'] }}</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>{{ t['legal-bases-heading'] }}</h2>
+        <ul>
+            <li>{{ t['legal-bases-consent'] }}</li>
+            <li>{{ t['legal-bases-legitimate-interest'] }}</li>
+            <li>{{ t['legal-bases-contract'] }}</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>{{ t['retention-heading'] }}</h2>
+        <p>{{ t['retention-contact'] }}</p>
+        <p>{{ t['retention-terminal'] }}</p>
+    </section>
+
+    <section>
+        <h2>{{ t['rights-heading'] }}</h2>
+        <ul>
+            <li>{{ t['rights-access'] }}</li>
+            <li>{{ t['rights-rectification'] }}</li>
+            <li>{{ t['rights-erasure'] }}</li>
+            <li>{{ t['rights-objection'] }}</li>
+            <li>{{ t['rights-complaint'] }}</li>
+        </ul>
+        <p>{{ t['rights-contact'] }}</p>
+    </section>
+
+    <section>
+        <h2>{{ t['minors-heading'] }}</h2>
+        <p>{{ t['minors-text'] }}</p>
+    </section>
+
+    <section>
+        <h2>{{ t['cookies-heading'] }}</h2>
+        <p>{{ t['cookies-text'] }}</p>
+    </section>
+
+    <section>
+        <h2>{{ t['security-heading'] }}</h2>
+        <p>{{ t['security-text'] }}</p>
+    </section>
+
+    <section>
+        <h2>{{ t['external-links-heading'] }}</h2>
+        <p>{{ t['external-links-text'] }}</p>
+    </section>
+
+    <p>{{ t['last-updated'] }}</p>
+
+    <script src="{{ request.url_for('static', path='src/classes/canvas.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/hacker-background.js') }}"></script>
+
+    <script src="{{ request.url_for('static', path='src/window-size-manager.js') }}"></script>
+</body>
+</html>

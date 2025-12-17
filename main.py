@@ -63,19 +63,12 @@ async def index(request: Request, msg: str = None):
     translations = load_translations(lang)
     return templates.TemplateResponse("index.html", {"request": request, "msg": msg, "t": translations})
 
-@app.get("/imprint/")
-async def impressum(request: Request):
-    # Translation support
-    lang = get_preferred_language(request)
-    translations = load_translations(lang)
-    return templates.TemplateResponse("impressum.html", {"request": request, "t": translations})
-
-@app.get("/privacy/")
+@app.get("/legal/")
 async def dsgvo(request: Request):
     # Translation support
     lang = get_preferred_language(request)
     translations = load_translations(lang)
-    return templates.TemplateResponse("dsgvo.html", {"request": request, "t": translations})
+    return templates.TemplateResponse("legal.html", {"request": request, "t": translations})
 
 @app.post("/")
 async def submit_form(request: Request, email: str = Form(...), message: str = Form(...)):    
