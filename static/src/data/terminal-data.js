@@ -128,7 +128,7 @@ terminalData.push({
 
 terminalData.push({
     "eng-com": ["tiktok"],
-    "help": "This command controlls everything asociated with tiktok",
+    "help": "This command controls everything asociated with tiktok",
     "sub-com": [
         {
             "eng-com": ["open"],

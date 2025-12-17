@@ -31,6 +31,14 @@ class Terminal {
         this.update();
     }
 
+    getUserMessagesAmount() {
+        return this.messages.filter(message => message.userCommand).length;
+    }
+    userHistory(index) {
+        if (index < 0) return "";
+        return this.messages.filter(message => message.userCommand)[this.getUserMessagesAmount()-index-1].content;
+    }
+
     async answerUserInput(input) {
         const keywords = input.trim().toLowerCase().split(" ");
         const keywordLength = keywords.length;

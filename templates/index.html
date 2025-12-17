@@ -67,7 +67,7 @@
                 <div id="console-output">
                     <p>> Hello World</p>
                 </div>
-                <input type="text" id="console-textfield" name="console-textfield" value="" onkeydown="consoleEntry(this)">
+                <input type="text" id="console-textfield" name="console-textfield" value="" onkeydown="consoleEntry(this, event)">
             </div>
         </div>
     </section>
@@ -88,7 +88,7 @@
     <script src="{{ request.url_for('static', path='src/terminal-functions/tiktok.js') }}"></script>
     <script src="{{ request.url_for('static', path='src/data/terminal-data.js') }}"></script>
     <script src="{{ request.url_for('static', path='src/classes/terminal.js') }}"></script>
-    <script src="{{ request.url_for('static', path='src/console-manager.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/terminal-manager.js') }}"></script>
 
 
     <script src="{{ request.url_for('static', path='src/data/matrix-earth-ascii.js') }}"></script>
