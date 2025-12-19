@@ -2,7 +2,6 @@
     /* Hacker color palette */
     --background: hsl(237, 95%, 8%);
     --primary: hsl(180, 85%, 65%);
-    --secondary: hsl(197, 87%, 61%);
     --color: hsl(220, 67%, 33%);
     --dark: hsl(225, 97%, 12%);
     --light: hsl(180, 86%, 92%);
@@ -33,10 +32,17 @@ input {
 td {
     align-content: center;
     justify-items: center;
-    width: 33%;
-    
+    width: 33%;   
 }
 
+button {
+    background-color: transparent;
+    border: none;
+}
+button:hover {
+    cursor: pointer;
+}
+ 
 .top-section {
     /* Not scrollable section */
     background: var(--background);
@@ -71,8 +77,12 @@ td {
 .frame:hover {
     cursor: pointer;
 }
+.frame.no-animations:hover {
+    cursor: unset;
+}
 .canvas-frame {
     position: absolute;
+    z-index: -1;
 }
 
 .profile-picture-frame {
@@ -122,6 +132,31 @@ td {
   /* background-color: antiquewhite; */
 }
 
+/* Popup window */
+.popup-container {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: 64px;
+    z-index: 20;
+    pointer-events: none;
+}
+.popup {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    position: absolute;
+    pointer-events: all;
+    display: none;
+}
+.popup-close-button {
+    position: absolute;
+    top: 8px;
+    right: 6px;
+}
+
 .column.divider {
     height: 100%;
     width: 100%;
@@ -150,11 +185,14 @@ td {
 
     font-size: large;
     overflow-y: auto;
-    overflow-x: visible;
 
     scrollbar-width: thin;
-    scrollbar-color: var(--secondary) transparent;
+    scrollbar-color: var(--primary) transparent;
 }
+#console-output * {
+    text-wrap: wrap;
+}
+
 #console-output::-webkit-scrollbar {
     width: 12px;
     height: 12px;
@@ -166,7 +204,7 @@ td {
     height: 0;
 }
 #console-output::-webkit-scrollbar-thumb {
-    background-color: var(--secondary);
+    background-color: var(--primary);
     border-radius: 6px;
 }
 

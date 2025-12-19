@@ -9,6 +9,20 @@
 </head>
 
 <body>
+    <div class="popup-container">
+        <div id="popup-empty" class="popup frame filled no-animations">
+            <canvas id="popup-canvas" class="canvas-frame"></canvas>
+            <button class="popup-close-button" onclick="closePopup('popup-empty')">
+                <img src="{{ request.url_for('static', path='icons/close.svg') }}" alt="Close">
+            </button>
+        </div>
+        <div id="popup-map" class="popup frame filled no-animations" style="display: block;">
+            <canvas id="popup-canvas" class="canvas-frame"></canvas>
+            <button class="popup-close-button" onclick="closePopup('popup-map')">
+                <img src="{{ request.url_for('static', path='icons/close.svg') }}" alt="Close">
+            </button>
+        </div>
+    </div>
     <section class="top-section">
         <canvas id="matrix-background" class="fullscreen-canvas"></canvas>
         <canvas id="grid-background" class="fullscreen-canvas"></canvas>
@@ -77,6 +91,8 @@
     </section>
     <script src="{{ request.url_for('static', path='src/useful-methods.js') }}"></script>
     <script src="{{ request.url_for('static', path='src/click-actions.js') }}"></script>
+
+    <script src="{{ request.url_for('static', path='src/popup.js') }}"></script>
 
     <script src="{{ request.url_for('static', path='src/classes/Canvas.js') }}"></script>
     <script src="{{ request.url_for('static', path='src/hacker-background.js') }}"></script>

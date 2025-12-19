@@ -26,7 +26,7 @@ class Terminal {
     }
 
     log(message) {
-        console.log("Message from terminal: " + message);
+        console.log("[ Terminal ] " + message);
         this.messages.push(new Message(message, false));
         this.update();
     }

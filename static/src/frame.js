@@ -1,8 +1,13 @@
-const htmlFrames = document.getElementsByClassName('canvas-frame');
+const htmlFrames = document.getElementsByClassName('frame');
 const frameColor = 'hsla(180, 85%, 65%, 100%)';
 const frameColorHover = 'hsla(180, 86%, 92%, 100%)';
 const frameColorDark = 'hsla(220, 67%, 33%, 100%)';
 const frameColorDarkHover = 'hsla(180, 85%, 65%, 100%)';
+
+const frameNoFillColor =        'hsla(180, 26%, 18%, 12%)'; // When frame is not filled (low transparenty but still filled. Sorry for the confusion)
+const frameNoFillColorHover =   'hsla(180, 26%, 18%, 20%)'; // When frame is not filled (low transparenty but still filled. Sorry for the confusion)
+const frameFillColor =          'hsla(180, 26%, 18%, 98%)';
+const frameFillColorHover =     'hsla(180, 26%, 18%, 100%)';
 
 // Frame styles
 const edge = 16;
@@ -19,23 +24,25 @@ const clickValue = 0.4;
 
 for (let i = 0; i < htmlFrames.length; i++) {
     // Dont do anything if the object isnt a canvas
-    const frameHTMLType = htmlFrames[i].localName;
+    const frameHTMLType = htmlFrames[i].children[0].localName;
     if (frameHTMLType !== "canvas") continue;
     
     // Create canvas object
     const id = "canvas-frame-" + i; 
-    const dark = htmlFrames[i].parentElement.classList.value.includes("dark");
-    htmlFrames[i].id = id;
-    frames[i] = new Frame(id, dark);
+    const dark = htmlFrames[i].children[0].parentElement.classList.value.includes("dark");
+    const filled = htmlFrames[i].children[0].parentElement.classList.value.includes("filled");
+    const noAnimations = htmlFrames[i].children[0].parentElement.classList.value.includes("no-animations");
+    htmlFrames[i].children[0].id = id;
+    frames[i] = new Frame(id, dark, filled, !noAnimations);
 
     // Mouse functions for animations
-    frames[i].canvas.onmouseenter = mouseEnterFrame;
-    frames[i].canvas.onmouseleave = mouseLeaveFrame;
-    frames[i].canvas.onmousedown = mouseClickFrame;
-    frames[i].canvas.onmouseup = mouseUnclickFrame;
+    htmlFrames[i].onmouseenter = mouseEnterFrame;
+    htmlFrames[i].onmouseleave = mouseLeaveFrame;
+    htmlFrames[i].onmousedown = mouseClickFrame;
+    htmlFrames[i].onmouseup = mouseUnclickFrame;
 
-    resizeFrames();
 }
+resizeFrames();
 
 function extractIndexFromID(canvasID) {
     return canvasID.slice(13,32).trim();
@@ -46,17 +53,28 @@ function getCanvasFromID(canvasID) {
 }
 
 function paintFrame(index) {
+    if (!frames[index].animations) frames[index].state = 0;
     const animationState = easeInOut(frames[index].state);
     const edge = lerp(14, 16, animationState);
     const lineWidth = lerp(2, 3, animationState);
-    let color;
+    let borderColor;
     if (frames[index].isDark) {
-        color = hslaColorLerp(frameColorDark, frameColorDarkHover, animationState);
+        borderColor = hslaColorLerp(frameColorDark, frameColorDarkHover, animationState);
     }
     else {
-        color = hslaColorLerp(frameColor, frameColorHover, animationState);
+        borderColor = hslaColorLerp(frameColor, frameColorHover, animationState);
     }
-    frames[index].paintFrame(edge, lineWidth, color, animationState);
+    
+    let fillColor;
+    if (frames[index].isFilled) {
+        fillColor = hslaColorLerp(frameFillColor, frameFillColorHover, animationState);
+    }
+    else {
+        fillColor = hslaColorLerp(frameNoFillColor, frameNoFillColorHover, animationState);
+    }
+ 
+    
+    frames[index].paintFrame(edge, lineWidth, borderColor, fillColor, animationState);
 }
 
 function animateFrame(index) {
@@ -101,29 +119,39 @@ function animateFrame(index) {
 }
 
 function mouseEnterFrame(event) {
-    const id = event.target.id;
+    const id = event.target.children[0].id;
     const index = extractIndexFromID(id);
+    if (frames[index].noAnimations) return;
     frames[index].direction = "hover";
     setTimeout(() => animateFrame(index), frameAnimationDuration);
 }
 function mouseLeaveFrame(event) {
-    const id = event.target.id;
+    const id = event.target.children[0].id;
     const index = extractIndexFromID(id);
+    if (frames[index].noAnimations) return;
     frames[index].direction = "neutral";
     setTimeout(() => animateFrame(index), frameAnimationDuration);
     
 }
 function mouseClickFrame(event) {
-    const id = event.target.id;
-    const index = extractIndexFromID(id);
-    frames[index].direction = "clicked";
-    setTimeout(() => animateFrame(index), frameAnimationDuration);
+    try {
+        const id = event.target.children[0].id;
+        const index = extractIndexFromID(id);
+        if (frames[index].noAnimations) return;
+        frames[index].direction = "clicked";
+        setTimeout(() => animateFrame(index), frameAnimationDuration);
+    }
+    catch (e) {} // Dont print any unnecessary error message when something inside the frame is clicked
 }
 function mouseUnclickFrame(event) {
-    const id = event.target.id;
-    const index = extractIndexFromID(id);
-    frames[index].direction = "hover";
-    setTimeout(() => animateFrame(index), frameAnimationDuration);
+    try {
+        const id = event.target.children[0].id;
+        const index = extractIndexFromID(id);
+        if (frames[index].noAnimations) return;
+        frames[index].direction = "hover";
+        setTimeout(() => animateFrame(index), frameAnimationDuration);
+    }
+    catch (e) {} // Dont print any unnecessary error message when something inside the frame is clicked
 }
 
 function resizeFrames() {

@@ -1,13 +1,15 @@
 /// Frame is the thing around the blue thing ykyk??
 class Frame extends Canvas {
-    constructor(canvas, isDark=false) {
+    constructor(canvas, isDark=false, isFilled=false, animations=true) {
         super(canvas);
         this.state = 0.0;
         this.direction = "neutral"; // Also "clicked" and "hover" possible
         this.isDark = isDark;
+        this.isFilled = isFilled;
+        this.animations = animations;
     }
     
-    paintFrame(edge, lineWidth, color, d) { // d => decoration
+    paintFrame(edge, lineWidth, borderColor, fillColor, d) { // d => decoration
         // Clear the frame
         this.clear();
 
@@ -17,7 +19,8 @@ class Frame extends Canvas {
 
 
         // Set consts
-        this.ctx.strokeStyle = color;
+        this.ctx.strokeStyle = borderColor;
+        this.ctx.fillStyle = fillColor;
         this.ctx.lineWidth = lineWidth;
         const hlw = lineWidth/2; // Half line width to not shoot over the edge
 
@@ -30,6 +33,7 @@ class Frame extends Canvas {
         this.ctx.lineTo(0+hlw,height-hlw);
         this.ctx.lineTo(0+hlw,0+hlw);
         this.ctx.stroke();
+        this.ctx.fill();
 
         const stripes = 3;
         const stripesHeight = 6;
