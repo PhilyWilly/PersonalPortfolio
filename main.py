@@ -40,21 +40,21 @@ def get_preferred_language(request: Request, supported=("en", "de"), default="en
     return default
 
 # Mail config
-conf = ConnectionConfig(
-    MAIL_USERNAME = os.getenv('MAIL_USERNAME'),
-    MAIL_PASSWORD = os.getenv('MAIL_PASSWORD'),
-    MAIL_FROM = os.getenv('MAIL_FROM'),
-    MAIL_PORT = os.getenv('MAIL_PORT'),
-    MAIL_SERVER = os.getenv('MAIL_SERVER'),
-    MAIL_STARTTLS = True,
-    MAIL_SSL_TLS = False,
-    USE_CREDENTIALS = True,
-    VALIDATE_CERTS = True
-)
+# conf = ConnectionConfig(
+#     MAIL_USERNAME = os.getenv('MAIL_USERNAME'),
+#     MAIL_PASSWORD = os.getenv('MAIL_PASSWORD'),
+#     MAIL_FROM = os.getenv('MAIL_FROM'),
+#     MAIL_PORT = os.getenv('MAIL_PORT'),
+#     MAIL_SERVER = os.getenv('MAIL_SERVER'),
+#     MAIL_STARTTLS = True,
+#     MAIL_SSL_TLS = False,
+#     USE_CREDENTIALS = True,
+#     VALIDATE_CERTS = True
+# )
 
-class ContactForm(BaseModel):
-    email: EmailStr
-    message: str
+# class ContactForm(BaseModel):
+#     email: EmailStr
+#     message: str
 
 @app.get("/")
 async def index(request: Request, msg: str = None):
@@ -70,26 +70,26 @@ async def dsgvo(request: Request):
     translations = load_translations(lang)
     return templates.TemplateResponse("legal.html", {"request": request, "t": translations})
 
-@app.post("/")
-async def submit_form(request: Request, email: str = Form(...), message: str = Form(...)):    
-    # Save to file
-    with open("messages.txt", "a") as f:
-        f.write(f"Email: {email}\nMessage: {message}\n\n")
+# @app.post("/")
+# async def submit_form(request: Request, email: str = Form(...), message: str = Form(...)):    
+#     # Save to file
+#     with open("messages.txt", "a") as f:
+#         f.write(f"Email: {email}\nMessage: {message}\n\n")
 
-    # Send email
-    fm = FastMail(conf)
-    msg = MessageSchema(
-        subject=f"New Contact Form Submission from {email}",
-        recipients=["davidernst0902@gmail.com", "davidernst0902@web.de"],
-        body=f"{message} \n\n\n This message was from davidwesch.de from the mail \n {email}",
-        subtype="plain",
-        sender=email
-    )
-    await fm.send_message(msg)
+#     # Send email
+#     fm = FastMail(conf)
+#     msg = MessageSchema(
+#         subject=f"New Contact Form Submission from {email}",
+#         recipients=["davidernst0902@gmail.com", "davidernst0902@web.de"],
+#         body=f"{message} \n\n\n This message was from davidwesch.de from the mail \n {email}",
+#         subtype="plain",
+#         sender=email
+#     )
+#     await fm.send_message(msg)
 
-    # Redirect with message
-    url = app.url_path_for("index") + "?msg=Message+sent+successfully!"
-    return RedirectResponse(url=url, status_code=status.HTTP_303_SEE_OTHER)
+#     # Redirect with message
+#     url = app.url_path_for("index") + "?msg=Message+sent+successfully!"
+#     return RedirectResponse(url=url, status_code=status.HTTP_303_SEE_OTHER)
 
 @app.get("/ip")
 async def get_ip(request: Request):
