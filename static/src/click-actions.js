@@ -13,7 +13,8 @@ function rightClickBitcoin() {
 }
 
 function clickCV() {
-    window.location.href = '/download-cv';
+    // window.location.href = '/download-cv'; // Download cv
+    openPopup('popup-cv');
 }
 function clickGitHub() {
     window.open('https://github.com/PhilyWilly');

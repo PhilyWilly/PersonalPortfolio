@@ -1,6 +1,7 @@
 class Terminal {
     constructor() {
         this.htmlConsoleOutput = document.getElementById("console-output");
+        this.halt = false;
 
         this.messages = []
     }
@@ -20,9 +21,35 @@ class Terminal {
     }
 
     async userInput(input) {
+        if (this.halt) return;
         this.messages.push(new Message(input, true));
         this.update();
         await this.answerUserInput(input);
+    }
+
+    async ynQuestion() {
+        this.halt = true;
+        // To be honest, the Promise part was coded with Copilot
+        // I tried my best to understand it tho afterwards
+        // If you didnt know I coded almost everything myself 
+        // (except for this)
+        return new Promise((resolve) => {
+            const originalUserInput = this.userInput.bind(this);
+            this.userInput = async (input) => {
+                this.halt = false;
+                this.userInput = originalUserInput;
+                switch (input.toLowerCase()) {
+                    case 'y':
+                    case 'yes':
+                    case 'j':
+                    case 'ja':
+                        resolve(true);
+                        break;
+                    default:
+                        resolve(false);
+                }
+            };
+        });
     }
 
     log(message) {
