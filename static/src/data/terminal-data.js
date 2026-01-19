@@ -119,7 +119,7 @@ terminalData.push({
     "help": "This command controlls the ascii art window",
     "sub-com": [
         {
-            "eng-com": ["earth", "reset"],
+            "eng-com": ["earth", "reset", "default"],
             "eng-ans": (terminal) => {
                 asciiController.setAnimation("earth"); 
                 terminal.log("Set ascii art to earth sucessfully");
