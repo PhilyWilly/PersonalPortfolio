@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="column three center">
-                    <div class="frame profile-picture-frame">
+                    <div class="frame profile-picture-frame" onclick=clickProfile()>
                         <canvas class="canvas-frame"></canvas>
                         <!-- <img src="{{ request.url_for('static', path='pics/picture-of-me-scaled-down.png') }}" alt="Profile picture" width="260" height="260"> -->
                         <p>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣶⣿⣿⣿⣿⣿⣶⡀
@@ -61,11 +61,11 @@
                 </div>
                 <div class="column three">
                     <div class="framelist">
-                        <div class="frame text-frame">
+                        <div class="frame text-frame" onclick=clickName()>
                             <canvas class="canvas-frame"></canvas>
                             <p>{{ t['name-label'] }}</p>
                         </div>
-                        <div class="frame text-frame">
+                        <div class="frame text-frame" onclick=clickAge()>
                             <canvas class="canvas-frame"></canvas>
                             <p>{{ t['age-label'] }}</p>
                         </div>

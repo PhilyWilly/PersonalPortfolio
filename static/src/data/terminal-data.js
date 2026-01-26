@@ -184,6 +184,22 @@ terminalData.push({
 });
 
 terminalData.push({
+    "eng-com": ["face", "appearance"],
+    "ger-com": ["gesicht", "aussehen"],
+    "secret": true, // I dont want to show my face normally heh
+    "eng-ans" : async (terminal) => {
+        terminal.log("Ready to play a game? (Type n for no or y for yes)");
+        if (await terminal.ynQuestion()) {
+            terminal.log("Not implemented yet heh :p")
+        }
+        else {
+            terminal.log("Alright then not ;)")
+        }
+    },
+    "help": "Here the game begins to discover my face <br>  Have fun :3",
+});
+
+terminalData.push({
     "eng-com": ["tiktok"],
     "help": "This command controls everything asociated with tiktok",
     "sub-com": [

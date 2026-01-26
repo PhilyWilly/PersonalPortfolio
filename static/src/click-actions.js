@@ -13,7 +13,6 @@ function rightClickBitcoin() {
 }
 
 function clickCV() {
-    // window.location.href = '/download-cv'; // Download cv
     openPopup('popup-cv');
 }
 function clickGitHub() {
@@ -21,4 +20,14 @@ function clickGitHub() {
 }
 function clickLegal() {
     window.open('/legal');
+}
+function clickName() {
+    terminalConsole.userInput("name");
+}
+function clickAge() {
+    terminalConsole.userInput("age");
+}
+
+function clickProfile() {
+    terminalConsole.userInput("face");
 }
