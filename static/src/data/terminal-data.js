@@ -119,11 +119,68 @@ terminalData.push({
     "help": "This command controlls the ascii art window",
     "sub-com": [
         {
-            "eng-com": ["earth"],
-            "eng-ans": (terminal) => terminal.log("TODO IMPLEMENT ASCII ANIMATION CHANGING!!"), // TODO
+            "eng-com": ["earth", "reset", "default"],
+            "eng-ans": (terminal) => {
+                asciiController.setAnimation("earth"); 
+                terminal.log("Set ascii art to earth sucessfully");
+            }, 
             "help": "This displays a spinning earth"
-        }
+        },
+        {
+            "eng-com": ["cat"],
+            "eng-ans": (terminal) => {
+                asciiController.setAnimation("cat"); 
+                terminal.log("Set ascii art to cat sucessfully");
+            }, 
+            "help": "This displays a silly cat"
+        },
+        {
+            "eng-com": ["anime", "cartoon"],
+            "eng-ans": (terminal) => {
+                asciiController.setAnimation("anime"); 
+                terminal.log("Set ascii art to anime sucessfully");
+            }, 
+            "help": "This displays anime"
+        },
+        {
+            "eng-com": ["anonymus", "hacker", "cybersecurity"],
+            "eng-ans": (terminal) => {
+                asciiController.setAnimation("anonymus"); 
+                terminal.log("Set ascii art to anonymus sucessfully");
+            }, 
+            "help": "This displays anonymus"
+        },
+        {
+            "eng-com": ["arch", "linux", "bios", "fastfetch", "neofetch"],
+            "eng-ans": (terminal) => {
+                asciiController.setAnimation("arch"); 
+                terminal.log("Set ascii art to arch sucessfully");
+            }, 
+            "help": "This displays a the arch logo"
+        },
     ]
+});
+
+terminalData.push({
+    "eng-com": ["fetch"],
+    "uses-input": true,
+    "secret": true, // A secret because it is a so useless feature ugh
+    "eng-ans" : async (terminal, input) => {
+        const response = await terminalFetch(terminal, input);
+        terminal.log(JSON.stringify(response));
+    },
+    "help": "You can fetch something from the internet with this <br>  Try fetch https://rickandmortyapi.com/api",
+});
+
+terminalData.push({
+    "eng-com": ["calculate"],
+    "uses-input": true,
+    "secret": true, // A secret because it is a so useless feature ugh
+    "eng-ans" : async (terminal, input) => {
+        const response = await calculate(terminal, input);
+        terminal.log(response);
+    },
+    "help": "You can calculate with basic operations <br>  Try 1+1 :3",
 });
 
 terminalData.push({

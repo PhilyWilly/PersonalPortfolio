@@ -21,7 +21,8 @@ n.append('                                          .:1i;i11ffL1,,...           
 n.append('                                         ..,:1t11i111fti,..                                         \n                                      ,::;i1tt11i11tiiCG;:;:,,.                                     \n                                   .,;i1111111i;;ttt1i:::::::;;;,.                                  \n                                 .::;ii11tt11i11ttt1ii1;::::::::;;;.                                \n                               .:::;1tfffLffttt1t1;;::::::::::;;::;1:                               \n                             .,::::tffLfLL111ti1i;::;::::::::;;;::::;t;                             \n                            .::::::1t1fff1iii11;;;:;;::::::;;;::::::;f0t                            \n                           .:::::::;iift1;iiii1ii;;:::::::;;;;::::::iCG0t                           \n                          .:::::;;;;;i1t1i1t;iiiiii;;;;:;;;;;;:::::;;L008i                          \n                          :;::;;;;;;;i;iii111ii;;;;;;;i;;;;;;;;::::;:iLLCG.                         \n                         .;;;;;;;;;;iii;;;;i1iiii1t11fti;;;;;;;;;;::;;;1tf;                         \n                         ,;;;;;;;;;;;;;;;;;i;;;1LffftfLfttti;;;;;;;;;;;;1i;                         \n                         ,;;;;;;;;;;;;;;;;i;;;1fttttttft1tt1ii;;;;;;;;;;;;:                         \n                         ,;;;;;;;;;;;;;;;;;;;;tf1111ttttt111ttff1;;;;;;;;;:                         \n                         .;;;;;;;;;;;;;;;;;;;:;t11ii11111ii11tLGL;;;:;;;;;,                         \n                          :;;;;;;;;;;;;;;;;::::;tfti11111i111tf1:;;:;;;;:;.                         \n                          .;;;;;;;;;;;:::::::::::;tft1111111111;;;;:;;;::,                          \n                           ,;;;;;;;;;;;;:::::::::,;Lt;i111ii;;;;;:::;;:::                           \n                            ,;:::;;;;;;:::::::::::fL111t11i;;:;;::::;::,                            \n                             .::::::::::::::::::::tttftf1;::::::::::::,                             \n                               ,:::::::::::::::::;it111:::::::::::::,.                              \n                                .,:::::::::::::::111;;::::::::::::,.                                \n                                   .,:::::::::::::;::;::::::::::,.                                  \n                                     ..,,,:::,,:,::i;::::::,,..                                     \n                                          ..:;1t1tCLi;;;:,.                                         \n')
 n.append('                                          ,,,:i111tii11i;:                                          \n                                      .:;;iiii1tf1ii1tti1L1:,..                                     \n                                   .,:::iii1111111ii;11t1ii:::::,.                                  \n                                 .,:::::;ii1t1tt11111ttt1iii;:::::,.                                \n                               .,::::::;i1tfffLLff1tt1t1;;::::::::;::.                              \n                             .,::::::::;tffLffLLt11t11i;::::::::::;;;:,                             \n                            .:::::::::::;tt1ftftiiiiii;;;:;;::::;;;:::;;                            \n                           .;;:::::::::::;ii1fti;iiiiiii;;;::::::;;::::1t                           \n                          .;;;:::::::;;;;;;;i1t1i1ti;;iiii;;;;;;;;;;::::L1                          \n                          :;:;;;;;;;;;;;;;;i;;iii1111i;;;;;;;;;;;;;;;:::;L.                         \n                         .;;;;;;;;;;;;;;;;;i;i;;;;;i1iii1tt1tf1;;;;;;;;::i;                         \n                         ,;;;;;;;;;;;;;;;;;;;;;;;;;;;i;ffffttfftt1;;;;;;;;;                         \n                         ,;;;;;;;;;;;;;;;;;;;;;;;i;;;;tttttftttttt1i;;;;;;:                         \n                         ,;;;;;;;;;;;;;;;;;;;;;;;;;;:ift111tttt1111tft;;:;:                         \n                         .;;;;;;;;;;;;;;;;;;;;;;;;;;;:it1ii11111i11tCCi;;;,                         \n                          :;;;;;;;;;;;;;;;;;;;;;;;:::::iff111111111ff;:;;;.                         \n                          .;;;;;;;;;;;;;;;;;;;::::::::::;1fti111111ti;;:;,                          \n                           ,;;;:;;;;;;;;;;;;;;;:::::::::,;L1;111ii;;;;:;:                           \n                            ,:::::::::;;;;;;::::::::::::;Lf1itti;:;;::;:                            \n                             .::::::::::::::::::::::::::if1ftti;::::::,                             \n                               ,:::::::::::::::::::::::;1t11i::::::::.                              \n                                .,::::::::::::::::::::;t1i;:,:::::,.                                \n                                  ..,::::::::::::::::,:;:::::::,,.                                  \n                                     ..,,:::::,,,,,,:;;;:::,,..                                     \n                                          ..,:11tft1ff;:,..                                         \n')
 
-def get_structured_n():
+
+def get_structured(n):
     return_string = ""
     for i, entry in enumerate(n):
         return_string = return_string + f"n[{i}] = '{entry.replace("\n", "\\n")}';\n"
@@ -29,7 +30,7 @@ def get_structured_n():
 
 def save_n_to_txt():
     with open("temp/result.txt", "w") as f:
-        f.write(get_structured_n())
+        f.write(get_structured(n))
 
 def delete_spaces_from_n(spaces=25):
     for i, entry in enumerate(n):
@@ -42,7 +43,13 @@ def delete_spaces_from_n(spaces=25):
 
         n[i] = "\n".join(line_list)
 
+def format_ascii(ascii):
+    text = ascii.replace("\n", "\\n")
+    with open("temp/ascii_result.txt", "w") as f:
+        f.write(text)
 
-delete_spaces_from_n(20)
+
+# delete_spaces_from_n(20)
 # print(get_structured_n())
-save_n_to_txt()
+# save_n_to_txt()
+format_ascii(ascii_art)

@@ -3,17 +3,31 @@ const htmlPopups = Array.from(document.getElementsByClassName("popup"));
 function closePopup(id=-1) {
     if (id === -1) { // Close all when there is no id
         for (popup of htmlPopups) {
-            popup.style.display = "none"; 
+            hidePopup(popUp); 
         }
         return;
     }
     for (popup of htmlPopups.filter((e) => e.id === id)) {
-        popup.style.display = "none";    
+        hidePopup(popup);
     }
 }
 
-function openPopup() {
-    for (popup of htmlPopups) {
-        popup.style.display = "none"; 
+function openPopup(id=-1) {
+    if (id === -1) { // Close all when there is no id
+        for (popup of htmlPopups) {
+            showPopup(popUp); 
+        }
+        return;
     }
+    showPopup(htmlPopups.filter((e) => e.id === id)[0]);
+    console.log("Showing " + id)
+}
+
+function showPopup(popUp) {
+    popUp.style.display = "block";
+    resizeFrames();
+}
+function hidePopup(popUp) {
+    popUp.style.display = "none";
+    resizeFrames();
 }

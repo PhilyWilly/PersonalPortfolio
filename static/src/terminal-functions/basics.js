@@ -35,7 +35,7 @@ async function pingServer(terminal) {
     let endTime;
     let endTimeMillis;
     const pingServerAdress = async () => {
-        const response = await fetch('/ip');
+        await fetch('/ip');
         terminal.log("Connection build sucessfully!");
         endTime = new Date();
         endTimeMillis = endTime.getTime();
@@ -57,4 +57,38 @@ async function pingServer(terminal) {
         terminal.log(e);
     }
     return 0;
+}
+async function terminalFetch(terminal, input) {
+    async function pingServerAdress() {
+        const response = await fetch(input);
+        terminal.log("Connection build sucessfully!");
+        return response.json();
+    }
+    try {
+        await delay(100);
+        terminal.log("Build connection with server...");
+        await delay(200);
+        const resp = await pingServerAdress();
+        await delay(100);
+        terminal.log("Fetched Data successfully");
+        return resp;
+    }
+    catch (e) {
+        terminal.log("An exception occurred!");
+        terminal.log(e);
+    }
+    return 0;
+}
+async function calculate(terminal, input) {
+    await delay(100);
+    input = input.replaceAll(" ", "");
+    terminal.log("Calculating " + input);
+    try {
+        await delay(1000);
+        return eval(input);
+    }
+    catch (e) {
+        terminal.log("An exception occurred!");
+        terminal.log(e);
+    }
 }
