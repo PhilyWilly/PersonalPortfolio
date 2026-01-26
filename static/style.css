@@ -10,6 +10,11 @@
     --transition-duration-hover: 360ms;
 }
 
+@font-face {
+    font-family: "Hack Daddy";
+    src: url("/static/font/Hackdaddy.otf") format("opentype");
+}
+
 body {
     margin: 0px;
     padding: 0px;
@@ -97,6 +102,7 @@ button:hover {
     margin: 8px 12px;
     margin-top: 16px;;
     font-size: large;
+    font-family: 'Hack Daddy';
 }
 
 .framelist {
