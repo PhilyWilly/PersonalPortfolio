@@ -12,6 +12,7 @@ class Frame extends Canvas {
     paintFrame(edge, lineWidth, borderColor, fillColor, d) { // d => decoration
         // Clear the frame
         this.clear();
+        return;
 
          // Get height and width
         const height = this.getHeight();

@@ -99,12 +99,30 @@ button:hover {
     color: var(--primary);
     margin: 8px;
     padding: 0px;
+    /* Border */
+    border: 2.0px solid var(--primary);
+    border-top-left-radius: 16px;
+    corner-shape: bevel;
+    /* Background */
+    background-color: hsla(237, 95%, 8%, 0.2);
+    box-shadow: 0px 0px 12px 6px var(--dark), 0px 0px 12px 6px var(--dark) inset;
+    transition: all var(--transition-duration-hover) ease-out;
 }
 .frame.dark {
     color: var(--color);
+    border-color: var(--color);
 }
 .frame:hover {
     cursor: pointer;
+    border-color: var(--light);
+    box-shadow: 0px 0px 12px 4px var(--color), 0px 0px 12px 4px var(--color) inset;
+}
+.frame.dark:hover {
+    border-color: var(--primary);
+}
+.frame:active {
+    border-color: var(--light);
+    box-shadow: 0px 0px 4px 2px var(--color), 0px 0px 4px 2px var(--color) inset;
 }
 .frame.no-animations:hover {
     cursor: unset;
@@ -163,6 +181,16 @@ button:hover {
   /* background-color: antiquewhite; */
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+@media (max-width: 1100px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Popup window */
 .popup-container {
     position: absolute;
@@ -181,6 +209,8 @@ button:hover {
     position: absolute;
     pointer-events: all;
     display: none;
+    background-color: var(--background);
+
 }
 .popup-close-button {
     position: absolute;
@@ -197,14 +227,23 @@ button:hover {
     width: 100%;
 }
 
+/* Main */
+.main {
+    overflow-y: scroll;
+    /* overflow-x: hidden; */
+}
+
 /* Console */
 .console {
     height: 30vh;
+    min-height: 160px;
 
     /* 20% transparency for console; fallback for older browsers */
     background-color: var(--background);
     background-color: hsl(237 95% 8% / 0.7);
     border: 3px solid var(--dark);
+    box-shadow: 8px 0px 12px 4px var(--dark);
+
 
     display: flex;
     flex-direction: column;
@@ -225,7 +264,7 @@ button:hover {
 }
 
 #console-textfield {
-    width: 100%;
+    width: 100% + 80px;
     height: 40px;
     padding: 2px 8px;
 
@@ -236,14 +275,18 @@ button:hover {
     border-width: 2px;
     border-color: var(--color);
     border-style: solid none none none;
+    box-shadow: 0px 0px 12px 4px var(--color),0px 16px 12px -12px var(--color) inset;
+    /* box-shadow: 0px 16px 12px -12px var(--light) inset; */
 
     transition: all var(--transition-duration-focus);
 }
 #console-textfield:hover {
-    border-width: 3px;
+    box-shadow: 0px 0px 12px 4px var(--primary),0px 16px 12px -12px var(--primary) inset;
+    border-color: var(--light);
 }
 #console-textfield:focus {
-    border-width: 5px;
+    box-shadow: 0px 0px 12px 2px var(--primary),0px 13px 12px -12px var(--primary) inset;
+    border-color: var(--light);
 }
 
 /* Spinning Earth */
@@ -264,7 +307,7 @@ button:hover {
     display: none;
 }
 .ellipse-shortener {
-    width: 69px;
+    width: 192px;
     display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
