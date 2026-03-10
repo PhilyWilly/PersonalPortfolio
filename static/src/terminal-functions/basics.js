@@ -1,17 +1,17 @@
 function getAge() {
     const birthDate = new Date("2007-02-09");
     const currentDate = new Date();
-    const difference = currentDate.getTime()-birthDate.getTime(); // In Milliseconds
+    const difference = currentDate.getTime() - birthDate.getTime(); // In Milliseconds
     const differenceDate = new Date(difference);
     return differenceDate.getUTCFullYear() - 1970;
-    return Math.floor(difference/1000/60/60/24/365); // First approach
+    return Math.floor(difference / 1000 / 60 / 60 / 24 / 365); // First approach
 }
 async function getIp(terminal) {
     let returnText = ""
     const userAction = async () => {
         const response = await fetch('/ip');
         terminal.log("Connection build sucessfully!");
-        const myJson = await response.json(); 
+        const myJson = await response.json();
 
         returnText = myJson.ip;
     }
@@ -29,13 +29,19 @@ async function getIp(terminal) {
     }
     return returnText;
 }
-async function pingServer(terminal) {
+async function pingServer(terminal, url = null) {
     let startTime;
     let startTimeMillis;
     let endTime;
     let endTimeMillis;
     const pingServerAdress = async () => {
-        await fetch('/ip');
+        if (url == null || url == "") {
+            url = "/ip";
+        }
+        else {
+            url = "https://corsproxy.io/?" + url;
+        }
+        await fetch(url);
         terminal.log("Connection build sucessfully!");
         endTime = new Date();
         endTimeMillis = endTime.getTime();
@@ -91,4 +97,12 @@ async function calculate(terminal, input) {
         terminal.log("An exception occurred!");
         terminal.log(e);
     }
+}
+
+async function ping(terminal, input) {
+    if (input == "") {
+        input = null;
+    }
+    const ping = await pingServer(terminal, input);
+    terminal.log("Ping: " + ping + "ms");
 }
