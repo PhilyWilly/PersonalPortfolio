@@ -48,40 +48,6 @@ python3 main.py
 
 The portfolio will be available at `http://localhost:9600`
 
-## Project Structure
-
-```
-PersonalPortfolio/
-├── main.py                 # FastAPI application entry point
-├── requirements.txt        # Python dependencies
-├── messages.txt           # Message storage
-├── languages/             # Translation files
-│   ├── de.json           # German translations
-│   └── en.json           # English translations
-├── static/                # Static assets
-│   │   style.css
-│   │   src/          # Source JavaScript modules
-│   │   ├── classes/
-│   │   │   ├── canvas.js
-│   │   │   ├── message.js
-│   │   │   └── terminal.js
-│   │   ├── data/
-│   │   │   ├── matrix-earth-ascii.js
-│   │   │   ├── profile-picture-ascii.js
-│   │   │   └── terminal-data.js
-│   │   ├── terminal-functions/
-│   │   │   ├── basics.js
-│   │   │   ├── delay.js
-│   │   ├── bitcoin-reciever.js
-│   │   ├── console-manager.js
-│   │   ├── hacker-background.js
-│   │   └── matrix-earth.js
-│   ├── files/            # Downloadable files (CV, etc.)
-│   └── pics/             # Images
-└── templates/            # HTML templates
-    └── index.html         
-```
-
 ## Technologies
 
 - **Backend**: FastAPI, Python
@@ -121,6 +87,11 @@ Edit the HTML templates in `templates/` to update your name, description, and co
 
 ### Modify Translations
 Update `languages/en.json` and `languages/de.json` with your preferred content
+
+## ToDos
+
+- [ ] Survey page
+- [x] Automatic Mail sender (interval like)
 
 ## License
 

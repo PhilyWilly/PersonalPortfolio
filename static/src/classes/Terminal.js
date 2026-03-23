@@ -110,9 +110,11 @@ class Terminal {
     extractVariables(keywords) {
         let variableMap = {};
         let newKeywords = [];
+        let keywordsComplete = false;
         for (let i = 0; i < keywords.length; i++) { // Itter through ech keyword and variable
             console.log("I: " + i);
             if (keywords[i].charAt(0) == '-') {
+                keywordsComplete = true;
                 const variableName = keywords[i];
                 let vaiableValue = "";
                 for (let j = i + 1; j < keywords.length; j++) { // Itter through the variable
@@ -120,16 +122,18 @@ class Terminal {
                     if (keywords[j].charAt(0) == '-') {
                         break;
                     }
-                    vaiableValue += keywords[j];
+                    vaiableValue += keywords[j] + " ";
                 }
-                variableMap[variableName] = vaiableValue;
+                variableMap[variableName] = vaiableValue.trim();
                 if (i === keywords.length - 1) {
                     console.log('break');
                     break;
                 }
             }
             else {
-                newKeywords.push(keywords[i]);
+                if (!keywordsComplete) {
+                    newKeywords.push(keywords[i]);
+                }
             }
         }
         return [newKeywords, variableMap];

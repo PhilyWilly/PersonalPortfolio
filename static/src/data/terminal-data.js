@@ -234,3 +234,33 @@ terminalData.push({
     "short-help": "[ Unstable ] NMap is a tool to scan local ip adresses.",
     "help": "[ Unstable ] NMap is a tool to scan local ip adresses. <br>  This is not the original. Just a scrappy copy of it for the browser. <br>  Usage: nmap [ip-adress] [options]<br>  Options:<br>    -p Ports<br>    -p- All ports<br>    --top-ports Scan the top 1000 portsExamples: <br>    nmap 192.168.1.1<br>    nmap 192.168.1.1, 192.168.1.2<br>    nmap 192.168.1.1 -p 8800<br>    nmap 192.168.1.1 -p 80, 443<br>    nmap 192.168.1.1 -p 1000-10000<br>    nmap 192.168.1.1 -p-"
 });
+
+terminalData.push({
+    "eng-com": ["cv", "resume", "curriculum"],
+    "ger-com": ["lebenslauf", ],
+    "eng-ans": async (terminal, variables) => {
+        terminal.log("Open cv in popup window!");
+        clickCV();
+    },
+    "ger-ans": async (terminal, variables) => {
+        terminal.log("Öffne Lebenslauf in einem Popup Fenster!");
+        clickCV();
+    },
+    "sub-com": [
+        { 
+            "eng-com": ["vitae"],
+            "ger-com": ["vita"],
+            "eng-ans": async (terminal, variables) => {
+                terminal.log("Open cv in popup window!");
+                clickCV();
+            },
+            "ger-ans": async (terminal, variables) => {
+                terminal.log("Öffne Lebenslauf in einem Popup Fenster!");
+                clickCV();
+            },
+            "help": "This is just a synonym for the cv command"
+        }
+    ],
+    "uses-input": true,
+    "help": "This command will open a popup window with the cv of David. <br>  If you want to open the german version of the cv you can use 'lebenslauf'"
+});
