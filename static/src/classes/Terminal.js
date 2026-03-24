@@ -112,7 +112,7 @@ class Terminal {
         let newKeywords = [];
         let keywordsComplete = false;
         for (let i = 0; i < keywords.length; i++) { // Itter through ech keyword and variable
-            console.log("I: " + i);
+            // console.log("I: " + i);
             if (keywords[i].charAt(0) == '-') {
                 keywordsComplete = true;
                 const variableName = keywords[i];
