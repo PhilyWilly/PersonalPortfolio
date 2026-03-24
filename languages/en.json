@@ -3,10 +3,19 @@
 
     "name-label": "Name",
     "age-label": "Age",
+    "surveys-label": "Surveys",
     "cv-label": "CV",
     "github-label": "Git Hub",
     "imprint": "Imprint",
     "legal-label": "Privacy",
+
+    "surveys-web-title": "David Wesch - Surveys",
+    "surveys-title": "Surveys",
+    "surveys-description": "This page contains surveys I took publicly. They are mostly for fun and to overcome my shyness.",
+
+    "surveys-frame-1-title": "How does AI impact the workplace?",
+    "surveys-frame-1-status": "Planning",
+    "surveys-frame-1-description": "With this survey, I want to gather different perspectives of people in Heidelberg on the topic of AI and the workplace. It's about finding out how people currently (2026) think about AI and maybe even fear for their job.",
 
     "legal-page-title": "Legal Notice & Privacy",
     "legal-page-heading": "Legal Notice & Privacy",

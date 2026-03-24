@@ -51,7 +51,7 @@ class Terminal {
             let helpText = null;
             helpText = sub['short-help'] + " Type '" + sub['eng-com'][0] + " -h' for more info.";
 
-            if (helpText == null) {
+            if (sub['short-help'] == null) {
                 helpText = sub['help'];
             }
             this.log("  " + sub['eng-com'][0] + ": \t" + helpText);

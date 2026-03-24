@@ -27,6 +27,9 @@ function clickName() {
 function clickAge() {
     terminalConsole.userInput("age");
 }
+function clickSurveys() {
+    window.open('/surveys', '_self');
+}
 
 function clickProfile() {
     terminalConsole.userInput("face");

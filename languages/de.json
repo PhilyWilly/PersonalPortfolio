@@ -1,11 +1,21 @@
 {
     "web-title": "David Wesch - Portfolio",
-
+    
     "name-label": "Name",
     "age-label": "Alter",
+    "surveys-label": "Umfragen",
     "cv-label": "Lebenslauf",
     "github-label": "Git Hub",
     "legal-label": "Datenschutz",
+
+
+    "surveys-web-title": "David Wesch - Umfragen",
+    "surveys-title": "Umfragen",
+    "surveys-description": "Diese Seite enthält Umfragen, die ich öffentlich gemacht habe. Sie dienen hauptsächlich dem Spaß und um meine Schüchternheit zu überwinden.",
+
+    "surveys-frame-1-title": "Wie beeinflusst KI den Arbeitsplatz?",
+    "surveys-frame-1-status": "In planung",
+    "surveys-frame-1-description": "Mit dieser Umfrage möchte ich verschiedene Perspektiven der Menschen in Heidelberg zum Thema KI und Arbeitsplatz sammeln. Es geht darum herauszufinden, wie die Menschen derzeit (2026) über KI denken und eventuell sogar Angst um ihren Job haben.",
 
     "legal-page-title": "Impressum & Datenschutz",
     "legal-page-heading": "Impressum & Datenschutz",

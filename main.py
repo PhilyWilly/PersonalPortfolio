@@ -63,6 +63,20 @@ async def index(request: Request, msg: str = None):
     translations = load_translations(lang)
     return templates.TemplateResponse("index.html", {"request": request, "msg": msg, "t": translations})
 
+@app.get("/surveys/")
+async def surveys(request: Request, msg: str = None):
+    # Translation support
+    lang = get_preferred_language(request)
+    translations = load_translations(lang)
+    return templates.TemplateResponse("surveys.html", {"request": request, "msg": msg, "t": translations})
+
+@app.get("/surveys/1/")
+async def survey1(request: Request, msg: str = None):
+    # Translation support
+    lang = get_preferred_language(request)
+    translations = load_translations(lang)
+    return templates.TemplateResponse("surveys/survey1.html", {"request": request, "msg": msg, "t": translations})
+
 @app.get("/legal/")
 async def dsgvo(request: Request):
     # Translation support

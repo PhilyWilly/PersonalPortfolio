@@ -262,5 +262,17 @@ terminalData.push({
         }
     ],
     "uses-input": true,
-    "help": "This command will open a popup window with the cv of David. <br>  If you want to open the german version of the cv you can use 'lebenslauf'"
+    "help": "This command will open a popup window with the cv of David."
+});
+
+terminalData.push({
+    "eng-com": ["cd", "go", "change-directory"],
+    "ger-com": ["wechsel-verzeichnis", "wechsle-verzeichnis", "gehe"],
+    "eng-ans": async (terminal, input, variables) => {
+        terminal.log("Changing directory to '" + input + "'...");
+        window.location.href = input;
+    },
+    "uses-input": true,
+    "short-help": "This command will change the current page to the input.",
+    "help": "This command will change the current page to the input. <br>  Usage: cd [url]"
 });

@@ -154,6 +154,15 @@ button:hover {
     width: 100%;
 }
 
+.frame.container {
+    padding: 4px 16px;
+}
+
+.badge {
+    margin-bottom: 0px;
+    opacity: 0.4;
+}
+
 /* Row Column */
 .row:after {
     content: "";
@@ -185,10 +194,24 @@ button:hover {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
+.grid.two-columns {
+    grid-template-columns: 1fr 1fr;
+}
+.grid.two-columns > * {
+    margin: 0px 24px;
+}
 @media (max-width: 1100px) {
     .grid {
         grid-template-columns: 1fr;
     }
+}
+@media (max-width: 900px) {
+    .grid.two-columns {
+        grid-template-columns: 1fr;
+    }
+    .grid.two-columns > * {
+    margin: 8px;
+}
 }
 
 /* Popup window */

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ t['surveys-frame-1-title'] }}</title>
+    <link rel="stylesheet" href="{{ request.url_for('static', path='style.css') }}">
+</head>
+
+<body>
+    <section class="top-section">
+        <canvas id="matrix-background" class="fullscreen-canvas"></canvas>
+        <canvas id="grid-background" class="fullscreen-canvas"></canvas>
+        <div class="column divider full-width">
+            <div style="display: flex;">
+                <div class="frame">
+                    <img src="/static/pics/wappen edit colored 192px.png" height="96" width="96" alt="David Wesch Wappen" class="wappen" onclick="window.location.href = '/'">
+                </div>
+                <div>
+                    <h1 class="text-center">{{ t['surveys-frame-1-title'] }}</h1>
+                    <p style="margin: 0px 32px; width: auto;">{{ t['surveys-frame-1-description'] }}</p>
+                </div>
+            </div>
+            <h3 style="width: 100%; text-align: center;">This survey is still in development.</h3>
+            <!-- <div class="main grid two-columns">
+            </div> -->
+            <div class="console">
+                <div id="console-output">
+                    <p> Hello World</p>
+                </div>
+                <input type="text" id="console-textfield" name="console-textfield" value=""
+                    onkeydown="consoleEntry(this, event)">
+            </div>
+        </div>
+    </section>
+    <script src="{{ request.url_for('static', path='src/useful-methods.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/click-actions.js') }}"></script>
+
+    <script src="{{ request.url_for('static', path='src/classes/Canvas.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/hacker-background.js') }}"></script>
+
+    <script src="{{ request.url_for('static', path='src/classes/Message.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/terminal-functions/basics.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/terminal-functions/delay.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/terminal-functions/tiktok.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/data/nmap-data.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/terminal-functions/nmap.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/data/terminal-data.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/classes/Terminal.js') }}"></script>
+    <script src="{{ request.url_for('static', path='src/terminal-manager.js') }}"></script>
+
+    <script src="{{ request.url_for('static', path='src/window-size-manager.js') }}"></script>
+</body>
+
+</html>
