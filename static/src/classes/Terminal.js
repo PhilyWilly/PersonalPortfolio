@@ -93,6 +93,15 @@ class Terminal {
         return false;
     }
 
+    // Looks if the keyword is in the command object
+    isKeywordGerman(keyword, command) {
+        if (!('ger-com' in command)) return false;
+        for (let commandKeyword of command['ger-com']) {
+            if (commandKeyword === keyword) return true;
+        }
+        return false;
+    }
+
     // Returns the command object of the keyword in a given set
     giveCommandObject(keyword, commandSet) {
         if (commandSet == undefined) return undefined;
@@ -185,13 +194,23 @@ class Terminal {
                     inputWord += keywords[j] + " ";
                 }
                 inputWord = inputWord.trim();
-                commandObject['eng-ans'](this, inputWord, variables);
+                if (this.isKeywordGerman(keywords[i], commandObject)) {
+                    commandObject['ger-ans'](this, inputWord, variables);
+                }
+                else {
+                    commandObject['eng-ans'](this, inputWord, variables);
+                }
                 answered = true;
                 break;
             }
             else if (i == keywords.length - 1) { // If this is the last keyword
                 if ('eng-ans' in commandObject) {
-                    commandObject['eng-ans'](this, variables);
+                    if (this.isKeywordGerman(keywords[i], commandObject)) {
+                        commandObject['ger-ans'](this, variables);
+                    }
+                    else {
+                        commandObject['eng-ans'](this, variables);
+                    }
                     answered = true;
                     break;
                 }

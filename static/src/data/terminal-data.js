@@ -276,3 +276,15 @@ terminalData.push({
     "short-help": "This command will change the current page to the input.",
     "help": "This command will change the current page to the input. <br>  Usage: cd [url]"
 });
+
+terminalData.push({
+    "eng-com": ["school", "uni", "university", "degree"],
+    "ger-com": ["schule", "uni", "universität", "abschluss"],
+    "eng-ans": async (terminal, variables) => {
+        terminal.log("I am currently making my abitur at the Carl-Bosch-School in Heidelberg.<br>  It is a technical school with a focus on computer science and natural sciences.<br>  After my graduation in 2027 I will probably study AI engineering in Mannheim.<br>  I also have a secondary school degree, which I made in 2023, and I was graded with 1.8 in german school grades.");
+    },
+    "ger-ans": async (terminal, variables) => {
+       terminal.log("Ich mache momentan mein Abitur an der Carl-Bosch-Schule in Heidelberg.<br>  Es ist eine technische Schule mit einem Fokus auf Informatik und Naturwissenschaften.<br>  Nach meinem Abschluss im Jahr 2027 werde ich wahrscheinlich KI Ingenieurwissenschaften in Mannheim studieren.<br>  Ich habe auch einen Realschulabschluss, den ich 2023 gemacht habe, und ich wurde mit 1,8 bewertet.");
+    },
+    "help": "This command will return some information about the school and university education of David.",
+});

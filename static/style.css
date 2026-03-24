@@ -133,8 +133,8 @@ button:hover {
 }
 
 .profile-picture-frame {
+    width: 240px;
     padding: 0px;
-    width: 300px;
     font-size: small;
 }
 .frame > p {
