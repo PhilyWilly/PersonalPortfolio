@@ -25,21 +25,31 @@ templates = Jinja2Templates(directory="templates")
 
 # Language configs
 def load_translations(lang):
-    with open(f"languages/{lang}.json", encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with open(f"languages/{lang}.json", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        # Fallback to default language if translation file not found
+        with open(f"languages/en.json", encoding="utf-8") as f:
+            return json.load(f)
 
 # Gets the preferred language
 def get_preferred_language(request: Request, supported=("en", "de"), default="en"):
-    accept_language = request.headers.get("accept-language", "")
-    for lang in accept_language.split(","):
-        code = lang.split(";")[0].strip().lower()
-        if code in supported:
-            return code
-        if "-" in code and code.split("-")[0] in supported:
-            return code.split("-")[0]
-    return default
+    try:
+        accept_language = request.headers.get("accept-language", "")
+        for lang in accept_language.split(","):
+            code = lang.split(";")[0].strip().lower()
+            if code in supported:
+                return code
+            if "-" in code and code.split("-")[0] in supported:
+                return code.split("-")[0]
+        return default
+    except Exception as e:
+        # Log the error for debugging
+        print(f"Error parsing accept-language header: {e}")
+        return default
 
-# Mail config
+# # Mail config
 # conf = ConnectionConfig(
 #     MAIL_USERNAME = os.getenv('MAIL_USERNAME'),
 #     MAIL_PASSWORD = os.getenv('MAIL_PASSWORD'),
@@ -61,7 +71,8 @@ async def index(request: Request, msg: str = None):
     # Translation support
     lang = get_preferred_language(request)
     translations = load_translations(lang)
-    return templates.TemplateResponse("index.html", {"request": request, "msg": msg, "t": translations})
+    context = {"request": request, "msg": msg, "t": translations}
+    return templates.TemplateResponse("index.html", context)
 
 @app.get("/surveys/")
 async def surveys(request: Request, msg: str = None):
@@ -112,12 +123,16 @@ async def get_ip(request: Request):
     return {"status": "success", "ip": client_ip}
 
 @app.get("/tiktok/random")
-async def get_ip(request: Request):
-    with open("static/src/data/tiktokFebuary2025.json", 'r', encoding='utf-8') as file:
-        json_text = file.read()
-        json_data = json.loads(json_text)
-
-        return {"status": "sucess", "url": random.choice(json_data)}
+async def get_random_tiktok(request: Request):
+    try:
+        with open("static/src/data/tiktokFebuary2025.json", 'r', encoding='utf-8') as file:
+            json_text = file.read()
+            json_data = json.loads(json_text)
+            return {"status": "success", "url": random.choice(json_data)}
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        # Log the error for debugging
+        print(f"Error processing TikTok data: {e}")
+        return {"status": "error", "message": "Could not retrieve TikTok data."}
 
 
 @app.websocket("/ws/bitcoin")
